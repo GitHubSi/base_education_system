@@ -1,0 +1,7 @@
+# MongoDB数据源配置
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/base_education
+
+# Redis的配置
