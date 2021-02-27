@@ -5,6 +5,7 @@ package henu.soft.xiaosi.pojo.declarationform.form1_principal;
  */
 import henu.soft.xiaosi.pojo.declarationform.TeachingCoursesInRecentTwoAcademicYears;
 import lombok.*;
+import org.springframework.data.annotation.Id;
 
 import java.util.Date;
 import java.util.List;
@@ -21,11 +22,12 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 public class Principal {
 
-    private String id;
-    private Date createdAt;
-    private Date updatedAt;
+
+
+    @Id
     private String principalID;
     private String name;
     private Date birthdate;

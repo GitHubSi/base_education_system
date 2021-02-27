@@ -5,10 +5,7 @@ package henu.soft.xiaosi.pojo.declarationform.form8_specialty_construction;
  */
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 /**
  * 六、专业建设表
@@ -17,7 +14,7 @@ import lombok.Setter;
  * @author json.cn (i@json.cn)
  * @website http://www.json.cn/java2pojo/
  */
-// @Repository
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

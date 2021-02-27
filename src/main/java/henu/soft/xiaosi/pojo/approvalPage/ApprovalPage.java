@@ -1,13 +1,11 @@
-package henu.soft.xiaosi.pojo.forms;
+package henu.soft.xiaosi.pojo.approvalPage;
 
 /**
  * Copyright 2021 json.cn
  */
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.springframework.stereotype.Repository;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
@@ -18,12 +16,18 @@ import java.util.List;
  * @author json.cn (i@json.cn)
  * @website http://www.json.cn/java2pojo/
  */
+@Document("approval_page")
 @lombok.Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class DelarationForms  {
+@ToString
+public class ApprovalPage {
+
+
+    @Id
+    private String id;
 
     // 申请表总表数量
     private int count;

@@ -4,10 +4,9 @@ package henu.soft.xiaosi.pojo.declarationform.form2_teachers;
  * Copyright 2021 json.cn
  */
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
@@ -19,13 +18,18 @@ import java.util.List;
  * @author json.cn (i@json.cn)
  * @website http://www.json.cn/java2pojo/
  */
+@Document(collection = "form2_teachers")
 @lombok.Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 public class Teachers {
 
+
+    @Id
+    private String membersID;
     private int count;
     private TeachersPagination teachersPagination;
     private List<TeachersData> data;

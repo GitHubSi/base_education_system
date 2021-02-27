@@ -3,10 +3,9 @@ package henu.soft.xiaosi.pojo.declarationform.form4_teaching_organization;
 /**
  * Copyright 2021 json.cn
  */
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
@@ -19,24 +18,27 @@ import java.util.List;
  * @author json.cn (i@json.cn)
  * @website http://www.json.cn/java2pojo/
  */
-@Repository
+@Data
+@Document(collection = "form4_teaching_organizations")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 public class TeachingOrganization {
 
-    private String id;
+
+
     private Date createdAt;
     private Date updatedAt;
-    private String formID;
+    @Id
+    private String teachingOrganizationID;
     private int totalNumberOfTeachers;
     private int coursesUndertaken;
     private int perCapitaWeeklySchoolHours;
     private int perCapitaGuidingGraduationThesis;
     private int teachingAccident;
     private String comprehensiveEvaluationOfExcellentTeaching;
-    private TeachingOrganizationContent teachingOrganizationContent;
-    private List<TeachingOrganizationInfo> teachingOrganizationInfo;
+    private TeachingOrganizationContent content;
+    private List<TeachingOrganizationInfo> info;
 
 }

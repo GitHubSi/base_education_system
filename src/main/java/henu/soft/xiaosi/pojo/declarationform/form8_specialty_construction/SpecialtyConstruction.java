@@ -4,10 +4,9 @@ package henu.soft.xiaosi.pojo.declarationform.form8_specialty_construction;
  * Copyright 2021 json.cn
  */
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
@@ -20,24 +19,26 @@ import java.util.List;
  * @author json.cn (i@json.cn)
  * @website http://www.json.cn/java2pojo/
  */
-@Repository
+@Data
+@Document(collection = "form8_speciality_construction")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 public class SpecialtyConstruction {
 
-    private String id;
+
+
 
     private Date createdAt;
 
     private Date updatedAt;
+    @Id
+    private String specialtyConstructionID;
 
-    private String formID;
+    private SpecialtyConstructionContent content;
 
-    private SpecialtyConstructionContent specialtyConstructionContent;
-
-    private List<SpecialtyConstructionInfo> specialtyConstructionInfo;
+    private List<SpecialtyConstructionInfo> info;
 
 
 }

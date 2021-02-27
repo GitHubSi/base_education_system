@@ -4,10 +4,9 @@ package henu.soft.xiaosi.pojo.declarationform.form12_future_construction_plan;
  * Copyright 2021 json.cn
  */
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
@@ -19,18 +18,21 @@ import java.util.Date;
  * @author json.cn (i@json.cn)
  * @website http://www.json.cn/java2pojo/
  */
-@Repository
+@Data
+@Document(collection = "form12_future_construction_plan")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 public class FutureConstructionPlan {
 
-    private String id;
+
+
     private Date createdAt;
     private Date updatedAt;
-    private String formID;
-    private FutureConstructionPlanContent futureConstructionPlanContent;
+    @Id
+    private String futureConstructionPlanID;
+    private FutureConstructionPlanContent content;
 
 
 }

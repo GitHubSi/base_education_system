@@ -4,13 +4,13 @@ package henu.soft.xiaosi.pojo.declarationform.form6_team_building;
  * Copyright 2021 json.cn
  */
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Auto-generated: 2021-02-07 20:16:17
@@ -18,24 +18,21 @@ import java.util.Date;
  * @author json.cn (i@json.cn)
  * @website http://www.json.cn/java2pojo/
  */
-@Repository
+@Document(collection = "form6_team_building")
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 public class TeamBuilding {
 
-    private String id;
-    private Date createdAt;
-    private Date updateAt;
-    private String fromID;
-    private TeamBuildingContent teamBuildingContent;
-    private String nameOfNewTeacher;
-    private int trainingTime;
-    private String trainingPlace;
-    private String trainingInstitution;
-    private String supervisor;
-    private String professionalTitle;
+
+
+    @Id
+    private String teamBuildingID;
+    private List<NewTeachers> newTeachers;
+    private TeamBuildingContent content;
 
 
 }

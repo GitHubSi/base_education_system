@@ -4,6 +4,8 @@ package henu.soft.xiaosi.pojo.declarationform.form3_rules_and_regulations;
  * Copyright 2021 json.cn
  */
 import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
@@ -14,6 +16,7 @@ import java.util.Date;
  * @author json.cn (i@json.cn)
  * @website http://www.json.cn/java2pojo/
  */
+@Document(collection = "form3_rules_and_regulations")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,20 +24,15 @@ import java.util.Date;
 @Setter
 public class RulesAndRegulations {
 
-    // 1. 规章制度表ID
-    private String id;
 
-    // 2. 创建时间
-    private Date createdAt;
 
-    // 3. 更新时间
-    private Date updatedAt;
+    // 1 所属申报表ID
+    @Id
+    private String  ruleAndRegulationID;
 
-    // 4. 所属申报表ID
-    private String formID;
 
-    // 5. 富文本编辑器内容
-    private RulesAndRegulationsContent rulesAndRegulationsContent;
+    // 2. 富文本编辑器内容
+    private RulesAndRegulationsContent content;
 
 
 }

@@ -1,14 +1,11 @@
-package henu.soft.xiaosi.pojo.declarationform.form9_partical_teaching;
+package henu.soft.xiaosi.pojo.declarationform.form9_practical_teaching;
 
 /**
  * Copyright 2021 json.cn
  */
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 /**
  * 七、实践教学
@@ -17,12 +14,12 @@ import lombok.Setter;
  * @author json.cn (i@json.cn)
  * @website http://www.json.cn/java2pojo/
  */
-// @Repository
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class ParticalTeachingContent {
+public class PracticalTeachingContent {
 
     private String html;
 

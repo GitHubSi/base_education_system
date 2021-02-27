@@ -4,10 +4,7 @@ package henu.soft.xiaosi.pojo.declarationform.form4_teaching_organization;
  * Copyright 2021 json.cn
  */
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -16,7 +13,7 @@ import org.springframework.stereotype.Repository;
  * @author json.cn (i@json.cn)
  * @website http://www.json.cn/java2pojo/
  */
-// @Repository
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

@@ -4,10 +4,7 @@ package henu.soft.xiaosi.pojo.declarationform.form10_condition_guarantee;
  * Copyright 2021 json.cn
  */
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 /**
  * 八、条件保证表
@@ -16,7 +13,7 @@ import lombok.Setter;
  * @author json.cn (i@json.cn)
  * @website http://www.json.cn/java2pojo/
  */
-// @Repository
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

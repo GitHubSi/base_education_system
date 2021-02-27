@@ -4,10 +4,9 @@ package henu.soft.xiaosi.pojo.declarationform.form7_teaching_research;
  * Copyright 2021 json.cn
  */
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
@@ -20,22 +19,25 @@ import java.util.List;
  * @author json.cn (i@json.cn)
  * @website http://www.json.cn/java2pojo/
  */
-@Repository
+@Data
+@Document(collection = "form7_teaching_research")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 public class TeachingResearch {
-    // 教学研究表ID
-    private String id;
+
+
+
     // 创建时间
     private Date createdAt;
     // 更新时间
     private Date updatedAt;
     // 申报表ID
-    private String formID;
+    @Id
+    private String teachingResearchID;
     // 富文本编辑器内容
-    private TeachingResearchContent teachingResearchContent;
+    private TeachingResearchContent content;
     // 教改项目项
     private List<EducationalReformProjects> educationalReformProjects;
     // 教改论文项

@@ -33,7 +33,7 @@ public class UserController {
 
         String currentUsername = voUser.getUsername();
         String currentUserPassword = voUser.getPassword();
-        System.out.println("debug"+ currentUsername + currentUserPassword);
+        System.out.println("debug=>"+ currentUsername + currentUserPassword);
 
         // 用户不存在
         User findUser = userService.findUserByUsername(currentUsername);

@@ -1,4 +1,4 @@
-package henu.soft.xiaosi.pojo.forms;
+package henu.soft.xiaosi.pojo.approvalPage;
 
 /**
  * Copyright 2021 json.cn
@@ -8,7 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.annotation.Id;
 
 /**
  * 总申报表信息展示-申报表审核情况 数据
@@ -25,6 +25,7 @@ import org.springframework.stereotype.Repository;
 public class Data {
 
     // 1. 申报表ID
+
     private String formID;
 
     // 2. 组织名称

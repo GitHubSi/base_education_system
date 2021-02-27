@@ -1,4 +1,4 @@
-package henu.soft.xiaosi.pojo.forms;
+package henu.soft.xiaosi.pojo.approvalPage;
 
 /**
  * Copyright 2021 json.cn
@@ -9,7 +9,6 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.stereotype.Repository;
 
 /**
  * 总申报表信息展示-申报表审核情况 页码信息

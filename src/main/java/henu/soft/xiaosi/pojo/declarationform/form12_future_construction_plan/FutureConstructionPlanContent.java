@@ -5,10 +5,7 @@ package henu.soft.xiaosi.pojo.declarationform.form12_future_construction_plan;
  */
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 /**
  * 十、今后建设计划表
@@ -18,6 +15,7 @@ import lombok.Setter;
  * @website http://www.json.cn/java2pojo/
  */
 // @Repository
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

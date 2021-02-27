@@ -1,9 +1,6 @@
 package henu.soft.xiaosi.pojo.user;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -14,6 +11,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 
 //把一个java类声明为mongodb的文档，可以通过collection参数指定这个类对应的文档。
 //@Document(collection="mongodb 对应 collection 名")
@@ -29,14 +27,5 @@ public class User implements Serializable {
     private String college;
     private String role;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id='" + id + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", college='" + college + '\'' +
-                ", role='" + role + '\'' +
-                '}';
-    }
+
 }

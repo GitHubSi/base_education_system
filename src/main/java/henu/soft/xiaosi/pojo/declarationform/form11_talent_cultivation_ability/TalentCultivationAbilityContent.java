@@ -5,10 +5,7 @@ package henu.soft.xiaosi.pojo.declarationform.form11_talent_cultivation_ability;
  */
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 /**
  * 九、人才培养能力
@@ -17,7 +14,7 @@ import lombok.Setter;
  * @author json.cn (i@json.cn)
  * @website http://www.json.cn/java2pojo/
  */
-// @Repository
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
