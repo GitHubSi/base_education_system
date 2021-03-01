@@ -3,7 +3,6 @@ package henu.soft.xiaosi.pojo.declarationform.form1_principal;
 /**
  * Copyright 2021 json.cn
  */
-import henu.soft.xiaosi.pojo.declarationform.TeachingCoursesInRecentTwoAcademicYears;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 

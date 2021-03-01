@@ -4,15 +4,12 @@ package henu.soft.xiaosi.pojo.declarationform.form2_teachers;
  * Copyright 2021 json.cn
  */
 
-import henu.soft.xiaosi.pojo.declarationform.TeachingCoursesInRecentTwoAcademicYears;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.stereotype.Repository;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * 基层教学组织成员表- 数据
@@ -58,7 +55,7 @@ public class TeachersData {
     //高校教龄
     private int universityTeachingAge;
     //近2学年任教课程及学时
-    private List<TeachingCoursesInRecentTwoAcademicYears> teachingCoursesInRecentTwoAcademicYears;
+    private String teachingCoursesInRecentTwoAcademicYears;
 
 
 }

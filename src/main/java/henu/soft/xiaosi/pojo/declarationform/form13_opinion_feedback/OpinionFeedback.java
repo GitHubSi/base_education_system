@@ -16,4 +16,5 @@ public class OpinionFeedback {
     @Id
     private String opinionFeedbackID;
     private OpinionFeedbackContent content;
+
 }

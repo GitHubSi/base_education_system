@@ -1,4 +1,4 @@
-package henu.soft.xiaosi.pojo.declarationform;
+package henu.soft.xiaosi.pojo.declarationform.form1_principal;
 
 /**
  * Copyright 2021 json.cn

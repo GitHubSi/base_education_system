@@ -58,6 +58,20 @@ public class DeclarationFormController{
 
 
     }
+    /**
+     * 1.2 更新
+     */
+    @PostMapping("/total/{formID}")
+    public ResultResponse updateDeclarationForm(@PathVariable String formID,@RequestBody DeclarationForm declarationForm){
+        Boolean result = declarationFormService.updateDeclarationForm(formID, declarationForm);
+        if (!result){
+            return ResultResponse.fail(404,"申报表信息更新失败！",null);
+        }
+        return ResultResponse.success(200,"申报表信息更新成功！",null);
+
+
+    }
+
 
 
     /**
@@ -463,5 +477,17 @@ public class DeclarationFormController{
             return ResultResponse.fail(404,"教务处反馈信息保存失败！",null);
         }
         return ResultResponse.success(200,"教务处反馈信息保存成功！",opinionFeedbackResult);
+    }
+
+    /**
+     * 14.2 更新
+     */
+    @PostMapping("/opinion-feedback/{opinionFeedbackID}")
+    public ResultResponse updateOpinionFeedback(@PathVariable String opinionFeedbackID,@RequestBody OpinionFeedback opinionFeedback){
+        Boolean result = declarationFormService.updateOpinionFeedback(opinionFeedbackID, opinionFeedback);
+        if (!result){
+            return ResultResponse.fail(404,"教务处反馈信息更新失败！",null);
+        }
+        return ResultResponse.success(200,"教务处反馈信息更新成功！",null);
     }
 }

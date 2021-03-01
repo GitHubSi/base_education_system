@@ -27,7 +27,6 @@ import java.util.Date;
 public class FutureConstructionPlan {
 
 
-
     private Date createdAt;
     private Date updatedAt;
     @Id

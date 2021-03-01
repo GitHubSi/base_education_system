@@ -23,7 +23,7 @@ public class NewTeachers {
 
     private String newTeacherID;
     private String nameOfNewTeacher;
-    private Date trainingTime;
+    private String trainingTime;
     private String trainingPlace;
     private String trainingInstitution;
     private String professionalTitle;

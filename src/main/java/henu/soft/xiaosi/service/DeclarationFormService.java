@@ -1,6 +1,7 @@
 package henu.soft.xiaosi.service;
 
 import com.mongodb.BasicDBObject;
+import com.mongodb.client.result.UpdateResult;
 import henu.soft.xiaosi.pojo.declarationform.DeclarationForm;
 import henu.soft.xiaosi.pojo.declarationform.form10_condition_guarantee.ConditionGuarantee;
 import henu.soft.xiaosi.pojo.declarationform.form11_talent_cultivation_ability.TalentCultivationAbility;
@@ -21,6 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -60,6 +62,45 @@ public class DeclarationFormService {
 
 
         return declaration_form;
+    }
+
+    public OpinionFeedback saveOpinionFeedback(OpinionFeedback opinionFeedback) {
+
+        OpinionFeedback form13_opinion_feedback = mongoTemplate.save(opinionFeedback, "form13_opinion_feedback");
+        return form13_opinion_feedback;
+    }
+
+    /**
+     * 1.2 更新 更新的declaration_form的info,插入approval_page的status
+     * @param declarationForm
+     * @return
+     */
+
+    public Boolean updateDeclarationForm(String formID,DeclarationForm declarationForm) {
+        try{
+
+            // 1. 更新declaration_form
+            Query query = new Query(Criteria.where("_id").is(new ObjectId(formID)));
+            Update update = Update.update("info",declarationForm.getInfo());
+            System.out.println("debug=> 更新的declaration_form的info" + declarationForm.getInfo());
+            mongoTemplate.updateFirst(query, update, "declaration_form");
+
+
+            // 2. 更新approval_page
+            Query query1 = new Query(Criteria.where("_id").is(new ObjectId("6035ed339b7064bfcc0bbc35")).and("data.formID").is(formID));
+            Update update1 = new Update();
+            update1.set("data.$.status",declarationForm.getInfo().getStatus());
+
+            System.out.println("debug=> 插入approval_page的status:" + declarationForm.getInfo().getStatus());
+            mongoTemplate.updateFirst(query1, update1, "approval_page");
+            return true;
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return false;
+
     }
 
     /**
@@ -385,14 +426,28 @@ public class DeclarationFormService {
     }
 
     /**
-     * 14.1 增
+     * 15.1 更新
      * @param opinionFeedback
      * @return
      */
 
-    public OpinionFeedback saveOpinionFeedback(OpinionFeedback opinionFeedback) {
 
-        OpinionFeedback form13_opinion_feedback = mongoTemplate.save(opinionFeedback, "form13_opinion_feedback");
-        return form13_opinion_feedback;
+
+    public Boolean updateOpinionFeedback(String opinionFeedbackID,OpinionFeedback opinionFeedback) {
+        try{
+            // 1. 更新opinionFeedback
+            Query query = new Query(Criteria.where("_id").is(new ObjectId(opinionFeedbackID)));
+            Update update = Update.update("content",opinionFeedback.getContent());
+            System.out.println("debug=> 更新的opinionFeedback的content" + opinionFeedback.getContent());
+            mongoTemplate.updateFirst(query, update, "form13_opinion_feedback");
+            return true;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+
+
+
     }
 }

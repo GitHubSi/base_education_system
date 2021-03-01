@@ -26,7 +26,7 @@ public class TalentCultivationAbilityInfo {
     private String nameOfTeacher;
     private String nameOfTeachingContest;
     private String organizer;
-    private Date time;
+    private String time;
     private String awards;
 
 
