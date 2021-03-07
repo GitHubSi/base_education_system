@@ -38,7 +38,7 @@ public class SpecialtyConstruction {
 
     private SpecialtyConstructionContent content;
 
-    private List<SpecialtyConstructionInfo> info;
+    private SpecialtyConstructionInfo info;
 
 
 }

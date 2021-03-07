@@ -6,10 +6,7 @@ import henu.soft.xiaosi.pojo.approvalPage.Data;
 import henu.soft.xiaosi.service.ApprovalPageService;
 import henu.soft.xiaosi.vo.ResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ApprovalPageController {
@@ -18,7 +15,7 @@ public class ApprovalPageController {
     ApprovalPageService approvalPageService;
 
     /**
-     * 1. 获取全部申报表列表
+     * 1. 查：获取全部申报表列表
      */
 
     @GetMapping("/approval-page")
@@ -32,7 +29,7 @@ public class ApprovalPageController {
 
     }
     /**
-     * 2. 更新申报表列表
+     * 2. 增：插入创建的新申报表
      */
     @PostMapping("/approval-page")
     public ResultResponse updateDeclarationFormsList(@RequestBody Data data){
@@ -43,4 +40,19 @@ public class ApprovalPageController {
         }
         return ResultResponse.fail(404,"插入失败！",null);
     }
+
+    /**
+     * 3. 删除：删除点击的申报表
+     */
+    @DeleteMapping("/approval-page")
+    public ResultResponse deleteDeclarationFormsByInfo(@RequestBody Data data){
+        Boolean insertResult = approvalPageService.deleteDeclarationFormByInfo(data);
+        System.out.println("debug==>删除的申报表审核信息：" + data);
+
+        if(insertResult){
+            return ResultResponse.success(200,"删除成功！",null);
+        }
+        return ResultResponse.fail(404,"删除失败！",null);
+    }
+
 }

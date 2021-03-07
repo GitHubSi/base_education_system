@@ -1,7 +1,7 @@
 package henu.soft.xiaosi.shiro;
 
 import henu.soft.xiaosi.pojo.user.User;
-import henu.soft.xiaosi.service.UserService;
+import henu.soft.xiaosi.service.LoginService;
 import henu.soft.xiaosi.utils.JwtUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
@@ -20,7 +20,7 @@ public class UserRealm extends AuthorizingRealm {
 
 
     @Autowired
-    UserService userService;
+    LoginService loginService;
 
 
 
@@ -61,7 +61,7 @@ public class UserRealm extends AuthorizingRealm {
 
         String currentUserNumber = JwtUtil.getUserNumber(shiroToken.getToken());
 
-        User currentUser = userService.findUserByUsername(currentUserNumber);
+        User currentUser = loginService.findUserByUsername(currentUserNumber);
 
         if(currentUser == null){
             throw new UnknownAccountException("用户名不存在！");

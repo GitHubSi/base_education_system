@@ -2,90 +2,88 @@ package henu.soft.xiaosi.controller;
 
 import henu.soft.xiaosi.pojo.user.User;
 import henu.soft.xiaosi.service.UserService;
-import henu.soft.xiaosi.utils.JwtUtil;
+import henu.soft.xiaosi.vo.ListQuery;
 import henu.soft.xiaosi.vo.ResultResponse;
-import henu.soft.xiaosi.vo.VoUser;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
     UserService userService;
 
-    /***
-     * 1. 用户登录
-     * @param voUser
-     * @param
-     * @param httpServletResponse
+
+    /**
+     * 1. 获取用户列表
      * @return
      */
+    @PostMapping("/list")
+    public ResultResponse findUserList(@RequestBody ListQuery listQuery){
 
-    @PostMapping("/login")
-    public ResultResponse login(@RequestBody VoUser voUser, HttpServletResponse httpServletResponse){
-
-        String currentUsername = voUser.getUsername();
-        String currentUserPassword = voUser.getPassword();
-        System.out.println("debug=>"+ currentUsername + currentUserPassword);
-
-        // 用户不存在
-        User findUser = userService.findUserByUsername(currentUsername);
-        System.out.println(findUser);
-        if(findUser == null){
-            return ResultResponse.fail(401,"用户不存在！",null);
-        }
-        // 密码不正确
-        if(!findUser.getPassword().equals(currentUserPassword)){
-            return ResultResponse.fail(401,"用户密码错误！",null);
-        }
-        // 生成token,返回前端
-        String token = JwtUtil.createToken(currentUsername);
-        httpServletResponse.setHeader("Access-Control-Expose-Headers","token");
-        httpServletResponse.setHeader("token",token);
-
-        voUser.setToken(token);
-        return ResultResponse.success(200,"正在登录...！",voUser);
-
-
-    }
-
-    /***
-     * 2. 获取用户信息
-     * @param httpServletRequest
-     * @return
-     */
-
-    @GetMapping("/info")
-    public ResultResponse userInfo(HttpServletRequest httpServletRequest){
-        String token = httpServletRequest.getHeader("token");
-        if(token == null) {
-            return ResultResponse.success(200,"请重新登录！",null);
-        }
-        String username = JwtUtil.getUserNumber(token);
-
-        User currentUser = userService.findUserByUsername(username);
-        return ResultResponse.success(200,"获取用户信息成功！",currentUser);
-
+        List<User> userList = userService.findUserList(listQuery);
+        return ResultResponse.success(200,"用户列表获取成功！",userList);
 
     }
 
     /**
-     * 退出功能
+     * 2. 查：查找用户
+     * @param userNumber
+     * @return
+     */
+    @GetMapping("/detail/{userNumber}")
+    public ResultResponse findUserByUserNumber(@PathVariable String userNumber){
+        return null;
+    }
+
+    /**
+     * 3. 增 ：增加用户
+     * @param user
      * @return
      */
 
-    @RequiresAuthentication
-    @PostMapping("/logout")
-    public  ResultResponse logout(){
-        SecurityUtils.getSubject().logout();
-        return ResultResponse.success(200,"退出成功！",null);
+    @PostMapping("/create")
+    public ResultResponse saveUser(@RequestBody User user){
+        Boolean result = userService.saveUser(user);
+        if(result){
+            return ResultResponse.success(200,"新增用户成功！",null);
+        }
+        return ResultResponse.fail(404,"新增用户失败！",null);
     }
+
+    /**
+     * 4. 删：删除用户
+     * @param userNumber
+     * @return
+     */
+    @DeleteMapping("/delete/{userNumber}")
+    public ResultResponse deleteUserByUserNumber(@PathVariable String userNumber){
+        Boolean result = userService.deleteUserByUserNumber(userNumber);
+        if(result){
+            return ResultResponse.success(200,"删除用户成功！",null);
+        }
+        return ResultResponse.fail(404,"删除用户失败！",null);
+
+    }
+
+    /**
+     * 5. 更新：更新用户
+     * @param userNumber
+     * @param user
+     * @return
+     */
+    @PostMapping("/update/{userNumber}")
+    public ResultResponse updateUserByUserNumber(@PathVariable String userNumber,@RequestBody User user){
+        Boolean result = userService.updateUserBuyUserNumber(userNumber, user);
+        if(result){
+            return ResultResponse.success(200,"更新用户成功！",null);
+        }
+        return ResultResponse.fail(404,"更新用户失败！",null);
+    }
+
+
 
 }

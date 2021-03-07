@@ -7,6 +7,8 @@ package henu.soft.xiaosi.pojo.declarationform.form8_specialty_construction;
 
 import lombok.*;
 
+import java.io.Serializable;
+
 /**
  * 六、专业建设表
  * Auto-generated: 2021-02-07 18:23:36
@@ -19,7 +21,7 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
-public class SpecialtyConstructionContent {
+public class SpecialtyConstructionContent implements Serializable {
 
     private String html;
 

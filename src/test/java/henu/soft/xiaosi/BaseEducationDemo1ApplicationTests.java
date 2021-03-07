@@ -1,8 +1,9 @@
 package henu.soft.xiaosi;
 
 
-import com.mongodb.client.result.UpdateResult;
+import henu.soft.xiaosi.controller.CollegeController;
 import henu.soft.xiaosi.controller.DeclarationFormController;
+import henu.soft.xiaosi.controller.LoginController;
 import henu.soft.xiaosi.controller.UserController;
 import henu.soft.xiaosi.pojo.approvalPage.Data;
 import henu.soft.xiaosi.pojo.declarationform.DeclarationForm;
@@ -14,10 +15,8 @@ import henu.soft.xiaosi.pojo.declarationform.form6_team_building.TeamBuilding;
 import henu.soft.xiaosi.pojo.user.User;
 import henu.soft.xiaosi.service.ApprovalPageService;
 import henu.soft.xiaosi.service.DeclarationFormService;
-import henu.soft.xiaosi.service.UserService;
+import henu.soft.xiaosi.service.LoginService;
 import henu.soft.xiaosi.vo.ResultResponse;
-import henu.soft.xiaosi.vo.VoUser;
-import net.sf.saxon.query.Declaration;
 import org.bson.types.ObjectId;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,12 +30,12 @@ class BaseEducationDemo1ApplicationTests {
     MongoTemplate mongoTemplate;
 
     @Autowired
-    UserService userService;
+    LoginService loginService;
 
 
 
     @Autowired
-    UserController userController;
+    LoginController loginController;
 
 
     @Autowired
@@ -56,7 +55,7 @@ class BaseEducationDemo1ApplicationTests {
     }
     @Test
     void testFindUerByUserNumber(){
-        User currentUser = userService.findUserByUserNumber("1925050351");
+        User currentUser = loginService.findUserByUserNumber("1925050351");
         System.out.println(currentUser);
     }
     @Test
@@ -155,6 +154,50 @@ class BaseEducationDemo1ApplicationTests {
         data.setCollege("软件学院");
         approvalPageService.updateFormList(data);
 
+    }
+
+
+    @Test
+    void testUpdatePrincipal(){
+        Principal principal = new Principal();
+        principal.setName("xiaosi");
+        ResultResponse resultResponse = declarationFormController.updatePrincipal("603b82605127c24412e22ba7", principal);
+        System.out.println(resultResponse);
+    }
+
+    @Test
+    void testUpdateTeachers(){
+        Teachers teachers = new Teachers();
+        teachers.setCount(10);
+        ResultResponse resultResponse = declarationFormController.updateMembers("60403a971b37783084e87b7a", teachers);
+        System.out.println(resultResponse);
+    }
+    @Test
+    void testDeleteTeachers(){
+        ResultResponse resultResponse = declarationFormController.deleteMembers("60403a971b37783084e87b7a");
+        System.out.println(resultResponse);
+    }
+    @Test
+    void testDeleteDeclarationForm(){
+        Data data = new Data();
+        data.setFormID("603ba6bb5127c24412e22bcf");
+        Boolean result = approvalPageService.deleteDeclarationFormByInfo(data);
+        System.out.println(result);
+    }
+
+
+    @Autowired
+    UserController userController;
+
+
+
+    @Autowired
+    CollegeController collegeController;
+
+    @Test
+    void testFindCollegeList(){
+        ResultResponse collegeList = collegeController.findCollegeList();
+        System.out.println(collegeList);
     }
 
 

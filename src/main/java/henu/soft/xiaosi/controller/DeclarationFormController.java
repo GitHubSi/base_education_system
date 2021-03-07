@@ -16,6 +16,8 @@ import henu.soft.xiaosi.pojo.declarationform.form7_teaching_research.TeachingRes
 import henu.soft.xiaosi.pojo.declarationform.form8_specialty_construction.SpecialtyConstruction;
 import henu.soft.xiaosi.pojo.declarationform.form9_practical_teaching.PracticalTeaching;
 import henu.soft.xiaosi.service.DeclarationFormService;
+import henu.soft.xiaosi.service.DeleteService;
+import henu.soft.xiaosi.service.UpdateService;
 import henu.soft.xiaosi.vo.ResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -29,9 +31,15 @@ public class DeclarationFormController{
     @Autowired
     DeclarationFormService declarationFormService;
 
+    @Autowired
+    DeleteService deleteService;
+
+    @Autowired
+    UpdateService updateService;
+
 
     /**
-     * 1. 获取当前申报表的 整体信息 及 分表ID
+     * 1. 查：获取当前申报表的 整体信息 及 分表ID
      */
     @GetMapping("/total/{formID}")
     public ResultResponse getDeclarationFormByFormId(@PathVariable String formID){
@@ -59,7 +67,7 @@ public class DeclarationFormController{
 
     }
     /**
-     * 1.2 更新
+     * 1.2 更新：更新申报表info
      */
     @PostMapping("/total/{formID}")
     public ResultResponse updateDeclarationForm(@PathVariable String formID,@RequestBody DeclarationForm declarationForm){
@@ -74,8 +82,10 @@ public class DeclarationFormController{
 
 
 
+
+
     /**
-     * 2. 获取分表principal信息
+     * 2. 查：获取分表principal信息
      */
     @GetMapping("/principal/{principalID}")
     public ResultResponse getPrincipalInfoById(@PathVariable String principalID){
@@ -105,7 +115,35 @@ public class DeclarationFormController{
 
 
     /**
-     * 3. 获取分表teachers信息
+     * 2.2 更新
+     */
+    @PostMapping("/principal/{principalID}")
+    public ResultResponse updatePrincipal(@PathVariable String principalID,@RequestBody Principal principal ){
+
+        Boolean result = updateService.updateCollectionById("form1_principal","principalID",principalID,principal);
+        if (!result){
+            return ResultResponse.fail(404,"负责人信息更新失败！",null);
+        }
+        return ResultResponse.success(200,"负责人信息更新成功！",null);
+    }
+
+
+
+    /**
+     * 2.3 删除
+     */
+    @DeleteMapping("/principal/{principalID}")
+    public ResultResponse deletePrincipal(@PathVariable String principalID){
+        Boolean result = deleteService.deleteCollectionById("form1_principal","principalID",principalID);
+        if (!result){
+            return ResultResponse.fail(404,"负责人信息删除失败！",null);
+        }
+        return ResultResponse.success(200,"负责人信息删除成功！",null);
+    }
+
+
+    /**
+     * 3. 查：获取分表teachers信息
      */
     @GetMapping("/teachers/{membersID}")
     public ResultResponse getMembersInfoById(@PathVariable String membersID){
@@ -136,6 +174,31 @@ public class DeclarationFormController{
     }
 
     /**
+     * 3.2 更新
+     */
+    @PostMapping("/teachers/{membersID}")
+    public ResultResponse updateMembers(@PathVariable String membersID,@RequestBody Teachers teachers ){
+
+        Boolean result = updateService.updateCollectionById("form2_teachers","membersID",membersID,teachers);
+        if (!result){
+            return ResultResponse.fail(404,"成员信息更新失败！",null);
+        }
+        return ResultResponse.success(200,"成员信息更新成功！",null);
+    }
+
+    /**
+     * 3.3 删除
+     */
+    @DeleteMapping("/teachers/{membersID}")
+    public ResultResponse deleteMembers(@PathVariable String membersID){
+        Boolean result = deleteService.deleteCollectionById("form2_teachers","membersID",membersID);
+        if (!result){
+            return ResultResponse.fail(404,"成员信息信息删除失败！",null);
+        }
+        return ResultResponse.success(200,"成员信息删除成功！",null);
+    }
+
+    /**
      * 4. 获取分表rulesAndRegulations 信息
      */
     @GetMapping("/rules-and-regulations/{ruleAndRegulationID}")
@@ -161,6 +224,30 @@ public class DeclarationFormController{
             return ResultResponse.fail(404,"规章制度信息保存失败！",null);
         }
         return ResultResponse.success(200,"规章制度信息保存成功！",rulesAndRegulationsResult);
+    }
+    /**
+     * 4.2 更新
+     */
+    @PostMapping("/rules-and-regulations/{ruleAndRegulationID}")
+    public ResultResponse updateRuleAndRegulation(@PathVariable String ruleAndRegulationID,@RequestBody RulesAndRegulations rulesAndRegulations ){
+
+        Boolean result = updateService.updateCollectionById("form3_rules_and_regulations","ruleAndRegulationID",ruleAndRegulationID,rulesAndRegulations);
+        if (!result){
+            return ResultResponse.fail(404,"规章制度信息更新失败！",null);
+        }
+        return ResultResponse.success(200,"规章制度更新成功！",null);
+    }
+
+    /**
+     * 4.3 删除
+     */
+    @DeleteMapping("/rules-and-regulations/{ruleAndRegulationID}")
+    public ResultResponse deleteRuleAndRegulation(@PathVariable String ruleAndRegulationID){
+        Boolean result = deleteService.deleteCollectionById("form3_rules_and_regulations","ruleAndRegulationID",ruleAndRegulationID);
+        if (!result){
+            return ResultResponse.fail(404,"规章制度信息删除失败！",null);
+        }
+        return ResultResponse.success(200,"规章制度删除成功！",null);
     }
 
     /**
@@ -193,6 +280,31 @@ public class DeclarationFormController{
     }
 
     /**
+     * 5.2 更新
+     */
+    @PostMapping("/team-building/{teamBuildingID}")
+    public ResultResponse updateTeamBuilding(@PathVariable String teamBuildingID,@RequestBody TeamBuilding teamBuilding ){
+
+        Boolean result = updateService.updateCollectionById("form6_team_building","teamBuildingID",teamBuildingID,teamBuilding);
+        if (!result){
+            return ResultResponse.fail(404,"队伍建设信息更新失败！",null);
+        }
+        return ResultResponse.success(200,"队伍建设更新成功！",null);
+    }
+
+    /**
+     * 5.3 删除
+     */
+    @DeleteMapping("/team-building/{teamBuildingID}")
+    public ResultResponse deleteTeamBuilding(@PathVariable String teamBuildingID){
+        Boolean result = deleteService.deleteCollectionById("form6_team_building","teamBuildingID",teamBuildingID);
+        if (!result){
+            return ResultResponse.fail(404,"队伍建设信息删除失败！",null);
+        }
+        return ResultResponse.success(200,"队伍建设删除成功！",null);
+    }
+
+    /**
      * 6. 获取分表teachingOrganization 信息
      */
     @GetMapping("/teaching-organization/{teachingOrganizationID}")
@@ -221,6 +333,31 @@ public class DeclarationFormController{
             return ResultResponse.fail(404,"教学组织信息保存失败！",null);
         }
         return ResultResponse.success(200,"教学组织信息保存成功！",teachingOrganizationResult);
+    }
+
+    /**
+     * 6.2 更新
+     */
+    @PostMapping("/teaching-organization/{teachingOrganizationID}")
+    public ResultResponse updateTeachingOrganization(@PathVariable String teachingOrganizationID,@RequestBody TeachingOrganization teachingOrganization ){
+
+        Boolean result = updateService.updateCollectionById("form4_teaching_organizations","teachingOrganizationID",teachingOrganizationID,teachingOrganization);
+        if (!result){
+            return ResultResponse.fail(404,"队伍建设信息更新失败！",null);
+        }
+        return ResultResponse.success(200,"队伍建设更新成功！",null);
+    }
+
+    /**
+     * 6.3 删除
+     */
+    @DeleteMapping("/teaching-organization/{teachingOrganizationID}")
+    public ResultResponse deleteTeachingOrganization(@PathVariable String teachingOrganizationID){
+        Boolean result = deleteService.deleteCollectionById("form4_teaching_organizations","teachingOrganizationID",teachingOrganizationID);
+        if (!result){
+            return ResultResponse.fail(404,"教学组织信息删除失败！",null);
+        }
+        return ResultResponse.success(200,"教学组织删除成功！",null);
     }
 
 
@@ -258,6 +395,31 @@ public class DeclarationFormController{
     }
 
     /**
+     * 7.2 更新
+     */
+    @PostMapping("/course-material/{courseMaterialID}")
+    public ResultResponse updateCourseMaterial(@PathVariable String courseMaterialID,@RequestBody CourseMaterial courseMaterial ){
+
+        Boolean result = updateService.updateCollectionById("form5_course_material","courseMaterialID",courseMaterialID,courseMaterial);
+        if (!result){
+            return ResultResponse.fail(404,"课程教材信息更新失败！",null);
+        }
+        return ResultResponse.success(200,"课程教材更新成功！",null);
+    }
+
+    /**
+     * 7.3 删除
+     */
+    @DeleteMapping("/course-material/{courseMaterialID}")
+    public ResultResponse deleteCourseMaterial(@PathVariable String courseMaterialID){
+        Boolean result = deleteService.deleteCollectionById("form5_course_material","courseMaterialID",courseMaterialID);
+        if (!result){
+            return ResultResponse.fail(404,"课程教材信息删除失败！",null);
+        }
+        return ResultResponse.success(200,"课程教材信息删除成功！",null);
+    }
+
+    /**
      * 8. 获取分表 教学研究 teachingResearch 信息
      *
      */
@@ -288,6 +450,31 @@ public class DeclarationFormController{
         return ResultResponse.success(200,"教学研究保存成功！",teachingResearchResult);
     }
 
+    /**
+     * 8.2 更新
+     */
+    @PostMapping("/teaching-research/{teachingResearchID}")
+    public ResultResponse updateTeachingResearch(@PathVariable String teachingResearchID,@RequestBody TeachingResearch teachingResearch ){
+
+        Boolean result = updateService.updateCollectionById("form7_teaching_research","teachingResearchID",teachingResearchID,teachingResearch);
+        if (!result){
+            return ResultResponse.fail(404,"教学研究更新失败！",null);
+        }
+        return ResultResponse.success(200,"教学研究更新成功！",null);
+    }
+
+    /**
+     * 8.3 删除
+     */
+    @DeleteMapping("/teaching-research/{teachingResearchID}")
+    public ResultResponse deleteTeachingResearch(@PathVariable String teachingResearchID){
+        Boolean result = deleteService.deleteCollectionById("form7_teaching_research","teachingResearchID",teachingResearchID);
+        if (!result){
+            return ResultResponse.fail(404,"教学研究信息删除失败！",null);
+        }
+        return ResultResponse.success(200,"教学研究信息删除成功！",null);
+    }
+
 
     /**
      * 9. 获取分表 专业建设 specialtyConstruction 信息
@@ -301,9 +488,9 @@ public class DeclarationFormController{
         if(specialtyConstruction != null){
 
             System.out.println("debug=>specialtyConstruction: " + specialtyConstruction );
-            return ResultResponse.success(200,"获取申报表队教学研究信息成功！",specialtyConstruction);
+            return ResultResponse.success(200,"获取申报表队专业建设信息成功！",specialtyConstruction);
         }
-        return ResultResponse.fail(404,"获取申报表教学研究信息失败！",null);
+        return ResultResponse.fail(404,"获取申报表专业建设信息失败！",null);
 
     }
 
@@ -316,10 +503,36 @@ public class DeclarationFormController{
     public ResultResponse saveSpecialtyConstruction(@RequestBody SpecialtyConstruction specialtyConstruction){
         SpecialtyConstruction specialtyConstructionResult = declarationFormService.saveSpecialtyConstruction(specialtyConstruction);
         if (specialtyConstructionResult == null){
-            return ResultResponse.fail(404,"教学研究信息保存失败！",null);
+            return ResultResponse.fail(404,"专业建设信息保存失败！",null);
         }
-        return ResultResponse.success(200,"教学研究保存成功！",specialtyConstructionResult);
+        return ResultResponse.success(200,"专业建设保存成功！",specialtyConstructionResult);
     }
+
+    /**
+     * 9.2 更新
+     */
+    @PostMapping("/specialty-construction/{specialtyConstructionID}")
+    public ResultResponse updateSpecialtyConstruction(@PathVariable String specialtyConstructionID,@RequestBody SpecialtyConstruction specialtyConstruction ){
+
+        Boolean result = updateService.updateCollectionById("form8_speciality_construction","specialtyConstructionID",specialtyConstructionID,specialtyConstruction);
+        if (!result){
+            return ResultResponse.fail(404,"专业建设更新失败！",null);
+        }
+        return ResultResponse.success(200,"专业建设更新成功！",null);
+    }
+
+    /**
+     * 9.3 删除
+     */
+    @DeleteMapping("/specialty-construction/{specialtyConstructionID}")
+    public ResultResponse deleteSpecialtyConstruction(@PathVariable String specialtyConstructionID){
+        Boolean result = deleteService.deleteCollectionById("form8_speciality_construction","specialtyConstructionID",specialtyConstructionID);
+        if (!result){
+            return ResultResponse.fail(404,"专业建设信息删除失败！",null);
+        }
+        return ResultResponse.success(200,"专业建设信息删除成功！",null);
+    }
+
     /**
      * 10. 获取分表 实践教学practicalTeaching 信息
      *
@@ -352,6 +565,31 @@ public class DeclarationFormController{
     }
 
     /**
+     * 10.2 更新
+     */
+    @PostMapping("/practical-teaching/{practicalTeachingID}")
+    public ResultResponse updatePracticalTeaching(@PathVariable String practicalTeachingID,@RequestBody PracticalTeaching practicalTeaching ){
+
+        Boolean result = updateService.updateCollectionById("form9_practical_teaching","practicalTeachingID",practicalTeachingID,practicalTeaching);
+        if (!result){
+            return ResultResponse.fail(404,"实践教学更新失败！",null);
+        }
+        return ResultResponse.success(200,"实践教学更新成功！",null);
+    }
+
+    /**
+     * 10.3 删除
+     */
+    @DeleteMapping("/practical-teaching/{practicalTeachingID}")
+    public ResultResponse deletePracticalTeaching(@PathVariable String practicalTeachingID){
+        Boolean result = deleteService.deleteCollectionById("form9_practical_teaching","practicalTeachingID",practicalTeachingID);
+        if (!result){
+            return ResultResponse.fail(404,"实践教学信息删除失败！",null);
+        }
+        return ResultResponse.success(200,"实践教学信息删除成功！",null);
+    }
+
+    /**
      * 11. 获取分表 条件保证conditionGuarantee 信息
      *
      */
@@ -380,6 +618,31 @@ public class DeclarationFormController{
             return ResultResponse.fail(404,"条件保障信息保存失败！",null);
         }
         return ResultResponse.success(200,"条件保障信息保存成功！",conditionGuaranteeResult);
+    }
+
+    /**
+     * 11.2 更新
+     */
+    @PostMapping("/condition-guarantee/{conditionGuaranteeID}")
+    public ResultResponse updateConditionGuarantee(@PathVariable String conditionGuaranteeID,@RequestBody ConditionGuarantee conditionGuarantee ){
+
+        Boolean result = updateService.updateCollectionById("form10_condition_guarantee","conditionGuaranteeID",conditionGuaranteeID,conditionGuarantee);
+        if (!result){
+            return ResultResponse.fail(404,"条件保障更新失败！",null);
+        }
+        return ResultResponse.success(200,"条件保障更新成功！",null);
+    }
+
+    /**
+     * 11.3 删除
+     */
+    @DeleteMapping("/condition-guarantee/{conditionGuaranteeID}")
+    public ResultResponse deleteConditionGuarantee(@PathVariable String conditionGuaranteeID){
+        Boolean result = deleteService.deleteCollectionById("form10_condition_guarantee","conditionGuaranteeID",conditionGuaranteeID);
+        if (!result){
+            return ResultResponse.fail(404,"条件保障信息删除失败！",null);
+        }
+        return ResultResponse.success(200,"条件保障信息删除成功！",null);
     }
     /**
      * 12. 获取分表 人才培养能力talentCultivationAbility 信息
@@ -413,6 +676,30 @@ public class DeclarationFormController{
         return ResultResponse.success(200,"人才培养能力信息保存成功！",talentCultivationAbilityResult);
     }
 
+    /**
+     * 12.2 更新
+     */
+    @PostMapping("/talent-cultivation-ability/{talentCultivationAbilityID}")
+    public ResultResponse updateTalentCultivationAbility(@PathVariable String talentCultivationAbilityID,@RequestBody TalentCultivationAbility talentCultivationAbility ){
+
+        Boolean result = updateService.updateCollectionById("form11_talent_cultivation_ability","talentCultivationAbilityID",talentCultivationAbilityID,talentCultivationAbility);
+        if (!result){
+            return ResultResponse.fail(404,"人才培养能力更新失败！",null);
+        }
+        return ResultResponse.success(200,"人才培养能力更新成功！",null);
+    }
+
+    /**
+     * 12.3 删除
+     */
+    @DeleteMapping("/talent-cultivation-ability/{talentCultivationAbilityID}")
+    public ResultResponse deleteTalentCultivationAbility(@PathVariable String talentCultivationAbilityID){
+        Boolean result = deleteService.deleteCollectionById("form11_talent_cultivation_ability","talentCultivationAbilityID",talentCultivationAbilityID);
+        if (!result){
+            return ResultResponse.fail(404,"人才培养能力信息删除失败！",null);
+        }
+        return ResultResponse.success(200,"人才培养能力信息删除成功！",null);
+    }
 
     /**
      * 13. 获取分表 将来建设计划 futureConstructionPlanID信息表
@@ -445,6 +732,31 @@ public class DeclarationFormController{
             return ResultResponse.fail(404,"将来建设计划信息保存失败！",null);
         }
         return ResultResponse.success(200,"将来建设计划信息保存成功！",futureConstructionPlanResult);
+    }
+
+    /**
+     * 13.2 更新
+     */
+    @PostMapping("/future-construction-plan/{futureConstructionPlanID}")
+    public ResultResponse updateFutureConstructionPlan(@PathVariable String futureConstructionPlanID,@RequestBody FutureConstructionPlan futureConstructionPlan ){
+
+        Boolean principalResult = updateService.updateCollectionById("form12_future_construction_plan","futureConstructionPlanID",futureConstructionPlanID,futureConstructionPlan);
+        if (!principalResult){
+            return ResultResponse.fail(404,"将来建设计划能力更新失败！",null);
+        }
+        return ResultResponse.success(200,"将来建设计划更新成功！",null);
+    }
+
+    /**
+     * 13.3 删除
+     */
+    @DeleteMapping("/future-construction-plan/{futureConstructionPlanID}")
+    public ResultResponse deleteFutureConstructionPlan(@PathVariable String futureConstructionPlanID){
+        Boolean result = deleteService.deleteCollectionById("form12_future_construction_plan","futureConstructionPlanID",futureConstructionPlanID);
+        if (!result){
+            return ResultResponse.fail(404,"将来建设计划信息删除失败！",null);
+        }
+        return ResultResponse.success(200,"将来建设计划信息删除成功！",null);
     }
 
     /**
@@ -484,10 +796,23 @@ public class DeclarationFormController{
      */
     @PostMapping("/opinion-feedback/{opinionFeedbackID}")
     public ResultResponse updateOpinionFeedback(@PathVariable String opinionFeedbackID,@RequestBody OpinionFeedback opinionFeedback){
-        Boolean result = declarationFormService.updateOpinionFeedback(opinionFeedbackID, opinionFeedback);
-        if (!result){
+
+        Boolean opinionFeedbackResult = updateService.updateCollectionById("form13_opinion_feedback", "opinionFeedbackID",opinionFeedbackID,opinionFeedback);
+        if (!opinionFeedbackResult){
             return ResultResponse.fail(404,"教务处反馈信息更新失败！",null);
         }
         return ResultResponse.success(200,"教务处反馈信息更新成功！",null);
+    }
+
+    /**
+     * 14.3 删除
+     */
+    @DeleteMapping("/opinion-feedback/{opinionFeedbackID}")
+    public ResultResponse deleteOpinionFeedback(@PathVariable String opinionFeedbackID){
+        Boolean opinionFeedbackResult = deleteService.deleteCollectionById("form13_opinion_feedback","opinionFeedbackID",opinionFeedbackID);
+        if (!opinionFeedbackResult){
+            return ResultResponse.fail(404,"教务处反馈信息信息删除失败！",null);
+        }
+        return ResultResponse.success(200,"教务处反馈信息信息删除成功！",null);
     }
 }

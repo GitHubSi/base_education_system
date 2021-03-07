@@ -22,7 +22,9 @@ public class User implements Serializable {
 
     @Id
     private String id;
+    private String userNumber;
     private String username;
+
     private String password;
     private String college;
     private String role;

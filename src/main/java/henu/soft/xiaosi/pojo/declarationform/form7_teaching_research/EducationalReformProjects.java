@@ -33,7 +33,7 @@ public class EducationalReformProjects {
     // 主持人
     private String host;
     // 成员
-    private List<String> members;
+    private String members;
     // 获奖等次
     private String awards;
 
