@@ -68,7 +68,7 @@ public class DeclarationFormService {
 
 
     /**
-     * 1.2 更新 ：更新的declaration_form的info 和 更新approval_page的审核状态status
+     * 1.2 更新 ：更新的declaration_form的info 和 更新approval_page的审核状态status、reviewer
      * @param declarationForm
      * @return
      */
@@ -86,9 +86,12 @@ public class DeclarationFormService {
             // 2. 更新approval_page
             Query query1 = new Query(Criteria.where("_id").is(new ObjectId("6035ed339b7064bfcc0bbc35")).and("data.formID").is(formID));
             Update update1 = new Update();
-            update1.set("data.$.status",declarationForm.getInfo().getStatus());
 
-            System.out.println("debug=> 插入approval_page的status:" + declarationForm.getInfo().getStatus());
+            update1.set("data.$.status",declarationForm.getInfo().getStatus()).set("data.$.reviewer",declarationForm.getInfo().getReviewer());
+
+
+            System.out.println("debug=> 更新approval_page的status:" + declarationForm.getInfo().getStatus());
+            System.out.println("debug=> 更新approval_page的reviewer:" + declarationForm.getInfo().getReviewer());
             UpdateResult updateApprovalPageResult = mongoTemplate.updateFirst(query1, update1, "approval_page");
             return updateDeclarationFormResult.getMatchedCount() == 1 && updateApprovalPageResult.getMatchedCount() == 1;
 

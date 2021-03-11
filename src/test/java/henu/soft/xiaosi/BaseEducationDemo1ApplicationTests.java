@@ -5,6 +5,7 @@ import henu.soft.xiaosi.controller.CollegeController;
 import henu.soft.xiaosi.controller.DeclarationFormController;
 import henu.soft.xiaosi.controller.LoginController;
 import henu.soft.xiaosi.controller.UserController;
+import henu.soft.xiaosi.pojo.approvalPage.ApprovalPage;
 import henu.soft.xiaosi.pojo.approvalPage.Data;
 import henu.soft.xiaosi.pojo.declarationform.DeclarationForm;
 import henu.soft.xiaosi.pojo.declarationform.form1_principal.Principal;
@@ -15,6 +16,7 @@ import henu.soft.xiaosi.pojo.declarationform.form6_team_building.TeamBuilding;
 import henu.soft.xiaosi.pojo.user.User;
 import henu.soft.xiaosi.service.ApprovalPageService;
 import henu.soft.xiaosi.service.DeclarationFormService;
+import henu.soft.xiaosi.service.DispatchFormService;
 import henu.soft.xiaosi.service.LoginService;
 import henu.soft.xiaosi.vo.ResultResponse;
 import org.bson.types.ObjectId;
@@ -22,6 +24,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.mongodb.core.MongoTemplate;
+
+import java.util.List;
 
 @SpringBootTest
 class BaseEducationDemo1ApplicationTests {
@@ -198,6 +202,17 @@ class BaseEducationDemo1ApplicationTests {
     void testFindCollegeList(){
         ResultResponse collegeList = collegeController.findCollegeList();
         System.out.println(collegeList);
+    }
+
+    @Autowired
+    DispatchFormService dispatchFormService;
+
+    @Test
+    void testFindDeclarationForms(){
+//        List<DeclarationForm> declarationForms = dispatchFormService.findDeclarationForms();
+//        System.out.println(declarationForms);
+        List<DeclarationForm> declarationFormsOfUndispatch = dispatchFormService.findDeclarationFormsOfUndispatch();
+        System.out.println(declarationFormsOfUndispatch);
     }
 
 

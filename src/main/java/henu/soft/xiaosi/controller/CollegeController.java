@@ -16,6 +16,10 @@ public class CollegeController {
     CollegeService collegeService;
 
 
+    /**
+     * 1. 查：查找学院列表
+     * @return
+     */
     @GetMapping("/list")
     public ResultResponse findCollegeList(){
 
@@ -28,4 +32,9 @@ public class CollegeController {
         return ResultResponse.success(200,"获取学院列表成功！",collegeList);
 
     }
+
+    /**
+     * 2. 增：系统管理员增加学院
+     */
+
 }

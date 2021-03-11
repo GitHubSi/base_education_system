@@ -18,7 +18,8 @@ import java.io.Serializable;
 @ToString
 public class VoUser implements Serializable {
 
-    private String username;
+
+    private String userNumber;
     private String password;
     private String token;
 

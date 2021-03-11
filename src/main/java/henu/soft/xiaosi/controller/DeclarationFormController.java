@@ -67,7 +67,7 @@ public class DeclarationFormController{
 
     }
     /**
-     * 1.2 更新：更新申报表info
+     * 1.2 更新：更新的declaration_form的info 和 更新approval_page的审核状态status、reviewer
      */
     @PostMapping("/total/{formID}")
     public ResultResponse updateDeclarationForm(@PathVariable String formID,@RequestBody DeclarationForm declarationForm){
@@ -391,7 +391,7 @@ public class DeclarationFormController{
         if (courseMaterialResult == null){
             return ResultResponse.fail(404,"课程教材概述信息保存失败！",null);
         }
-        return ResultResponse.success(200,"教学组织信息保存成功！",courseMaterialResult);
+        return ResultResponse.success(200,"课程教材信息保存成功！",courseMaterialResult);
     }
 
     /**

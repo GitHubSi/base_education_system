@@ -19,8 +19,9 @@ public class LoginService {
      * 1. 根据学工号查询用户
      */
     public User findUserByUserNumber(String currentUserNumber) {
-        Query query=new Query(Criteria.where("usernumber").is(currentUserNumber));
+        Query query=new Query(Criteria.where("userNumber").is(currentUserNumber));
         User currentUser = mongoTemplate.findOne(query, User.class);
+        System.out.println("debug=>"  + currentUser);
         return currentUser;
 
     }

@@ -31,12 +31,12 @@ public class LoginController {
     @PostMapping("/login")
     public ResultResponse login(@RequestBody VoUser voUser, HttpServletResponse httpServletResponse){
 
-        String currentUsername = voUser.getUsername();
+        String currentUserNumber = voUser.getUserNumber();
         String currentUserPassword = voUser.getPassword();
-        System.out.println("debug=>"+ currentUsername + currentUserPassword);
+        System.out.println("debug=>"+ currentUserNumber + currentUserPassword);
 
         // 用户不存在
-        User findUser = loginService.findUserByUsername(currentUsername);
+        User findUser = loginService.findUserByUserNumber(currentUserNumber);
         System.out.println(findUser);
         if(findUser == null){
             return ResultResponse.fail(401,"用户不存在！",null);
@@ -46,7 +46,7 @@ public class LoginController {
             return ResultResponse.fail(401,"用户密码错误！",null);
         }
         // 生成token,返回前端
-        String token = JwtUtil.createToken(currentUsername);
+        String token = JwtUtil.createToken(currentUserNumber);
         httpServletResponse.setHeader("Access-Control-Expose-Headers","token");
         httpServletResponse.setHeader("token",token);
 
@@ -68,9 +68,9 @@ public class LoginController {
         if(token == null) {
             return ResultResponse.success(200,"请重新登录！",null);
         }
-        String username = JwtUtil.getUserNumber(token);
+        String userNumber = JwtUtil.getUserNumber(token);
 
-        User currentUser = loginService.findUserByUsername(username);
+        User currentUser = loginService.findUserByUserNumber(userNumber);
         return ResultResponse.success(200,"获取用户信息成功！",currentUser);
 
 

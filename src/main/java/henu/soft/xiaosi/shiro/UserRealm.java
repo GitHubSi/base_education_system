@@ -61,7 +61,7 @@ public class UserRealm extends AuthorizingRealm {
 
         String currentUserNumber = JwtUtil.getUserNumber(shiroToken.getToken());
 
-        User currentUser = loginService.findUserByUsername(currentUserNumber);
+        User currentUser = loginService.findUserByUserNumber(currentUserNumber);
 
         if(currentUser == null){
             throw new UnknownAccountException("用户名不存在！");

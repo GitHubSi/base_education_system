@@ -39,5 +39,11 @@ public class FormInfo {
     // 6. 审核人
     private String reviewer;
 
+    // 7. 分配评分专家
+
+    private String userNumberOfMarker;
+
+    // 8. 总分数
+    private String totalScore;
 
 }

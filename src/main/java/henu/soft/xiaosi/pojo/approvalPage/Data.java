@@ -47,4 +47,12 @@ public class Data {
     private String reviewer;
 
 
+    // 9. 评测人工号
+    private String userNumberOfMarker;
+
+    // 10. 总分数
+
+    private String totalScore;
+
+
 }
