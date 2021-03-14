@@ -28,6 +28,18 @@ public class Principal {
 
     @Id
     private String principalID;
+
+    // 教学组织名称
+    private String nameOfTeachingOrganization;
+    // 隶属单位
+    private String subordinateUnit;
+
+    // 类别
+    private String classification;
+
+    // 获批等级
+    private ApprovalLevel approvalLevel;
+
     private String name;
     private Date birthdate;
     private String gender;
@@ -35,7 +47,7 @@ public class Principal {
     private String degree;
     private String authorizationDepartment;
     private Date dateOfGrant;
-    private Integer universityTeachingAge;
+    private int universityTeachingAge;
     private String professionalTitle;
     private String administrativeDuties;
     private Date dateOfHeadOfBasicTeachingOrganization;
