@@ -1,6 +1,5 @@
 package henu.soft.xiaosi.controller;
 
-import henu.soft.xiaosi.pojo.approvalPage.ApprovalPage;
 import henu.soft.xiaosi.pojo.declarationform.DeclarationForm;
 import henu.soft.xiaosi.pojo.user.User;
 import henu.soft.xiaosi.service.DispatchFormService;

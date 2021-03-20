@@ -59,6 +59,7 @@ public class DeclarationFormService {
      */
 
     public DeclarationForm saveDeclarationForm(DeclarationForm declarationForm) {
+
         DeclarationForm declaration_form = mongoTemplate.save(declarationForm, "declaration_form");
 
 
@@ -68,30 +69,36 @@ public class DeclarationFormService {
 
 
     /**
-     * 1.2 更新 ：更新的declaration_form的info 和 更新approval_page的审核状态status、reviewer
+     * 1.2 更新 ：更新的declaration_form的 status、reviewer和 更新approval_page的审核状态status、reviewer、userNumberOfReviewer
      * @param declarationForm
      * @return
      */
 
-    public Boolean updateDeclarationForm(String formID,DeclarationForm declarationForm) {
+    public Boolean updateDeclarationFormOfStatusAndReviewer(String formID,DeclarationForm declarationForm) {
         try{
 
             // 1. 更新declaration_form
             Query query = new Query(Criteria.where("_id").is(new ObjectId(formID)));
-            Update update = Update.update("info",declarationForm.getInfo());
-            System.out.println("debug=> 更新的declaration_form的info" + declarationForm.getInfo());
+            Update update = new Update();
+            update.set("info.formID",declarationForm.getFormID()).
+                    set("info.status",declarationForm.getInfo().getStatus()).
+                    set("info.reviewer",declarationForm.getInfo().getReviewer());
+
+
             UpdateResult updateDeclarationFormResult = mongoTemplate.updateFirst(query, update, "declaration_form");
 
 
             // 2. 更新approval_page
             Query query1 = new Query(Criteria.where("_id").is(new ObjectId("6035ed339b7064bfcc0bbc35")).and("data.formID").is(formID));
             Update update1 = new Update();
-
-            update1.set("data.$.status",declarationForm.getInfo().getStatus()).set("data.$.reviewer",declarationForm.getInfo().getReviewer());
+            update1.set("data.$.status",declarationForm.getInfo().getStatus()).
+                    set("data.$.reviewer",declarationForm.getInfo().getReviewer()).
+                    set("data.$.userNumberOfReviewer",declarationForm.getInfo().getUserNumberOfReviewer());
 
 
             System.out.println("debug=> 更新approval_page的status:" + declarationForm.getInfo().getStatus());
             System.out.println("debug=> 更新approval_page的reviewer:" + declarationForm.getInfo().getReviewer());
+
             UpdateResult updateApprovalPageResult = mongoTemplate.updateFirst(query1, update1, "approval_page");
             return updateDeclarationFormResult.getMatchedCount() == 1 && updateApprovalPageResult.getMatchedCount() == 1;
 
@@ -102,6 +109,57 @@ public class DeclarationFormService {
         return false;
 
     }
+    /**
+     * 1.3 更新 ：更新的declaration_form的 info和 更新approval_page的审核状态info
+     * @param declarationForm
+     * @return
+     */
+
+    public Boolean updateDeclarationFormOfInfo(String formID,DeclarationForm declarationForm) {
+        try{
+
+            // 1. 更新declaration_form
+           declarationForm.getInfo().setFormID(declarationForm.getFormID());
+            Query query = new Query(Criteria.where("_id").is(new ObjectId(formID)));
+            Update update = Update.update("info",declarationForm.getInfo());
+
+            System.out.println("debug=> 更新的declaration_form的info" + declarationForm.getInfo());
+            UpdateResult updateDeclarationFormResult = mongoTemplate.updateFirst(query, update, "declaration_form");
+
+
+            // 2. 更新approval_page
+            Query query1 = new Query(Criteria.where("_id").is(new ObjectId("6035ed339b7064bfcc0bbc35")).and("data.formID").is(formID));
+            Update update1 = new Update();
+            update1.set("data.$.status",declarationForm.getInfo().getStatus()).
+                    set("data.$.reviewer",declarationForm.getInfo().getReviewer()).
+                    set("data.$.college",declarationForm.getInfo().getCollege()).
+                    set("data.$.principal",declarationForm.getInfo().getPrincipal()).
+                    set("data.$.organization",declarationForm.getInfo().getOrganization()).
+                    set("data.$.professionalTitle",declarationForm.getInfo().getProfessionalTitle()).
+                    set("data.$.userNumberOfMarker",declarationForm.getInfo().getUserNumberOfMarker()).
+                    set("data.$.userNumberOfReviewer",declarationForm.getInfo().getUserNumberOfReviewer()).
+                    set("data.$.totalScore",declarationForm.getInfo().getTotalScore());
+
+
+            System.out.println("debug=> 更新approval_page的status:" + declarationForm.getInfo().getStatus());
+            System.out.println("debug=> 更新approval_page的reviewer:" + declarationForm.getInfo().getReviewer());
+
+            UpdateResult updateApprovalPageResult = mongoTemplate.updateFirst(query1, update1, "approval_page");
+            return updateDeclarationFormResult.getMatchedCount() == 1 && updateApprovalPageResult.getMatchedCount() == 1;
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return false;
+
+    }
+
+
+
+
+
+
 
 
 

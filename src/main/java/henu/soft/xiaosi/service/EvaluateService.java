@@ -1,7 +1,7 @@
 package henu.soft.xiaosi.service;
 
 import com.mongodb.client.result.UpdateResult;
-import henu.soft.xiaosi.pojo.approvalPage.ApprovalPage;
+import henu.soft.xiaosi.pojo.approval_page.ApprovalPage;
 import henu.soft.xiaosi.pojo.declarationform.DeclarationForm;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;

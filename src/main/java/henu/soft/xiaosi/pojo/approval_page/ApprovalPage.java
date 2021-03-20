@@ -1,4 +1,4 @@
-package henu.soft.xiaosi.pojo.approvalPage;
+package henu.soft.xiaosi.pojo.approval_page;
 
 /**
  * Copyright 2021 json.cn
@@ -29,11 +29,6 @@ public class ApprovalPage {
     @Id
     private String id;
 
-    // 申请表总表数量
-    private int count;
-
-    // 页码信息
-    private Pagination pagination;
 
     // 申请表详细信息
     private List<Data> data;

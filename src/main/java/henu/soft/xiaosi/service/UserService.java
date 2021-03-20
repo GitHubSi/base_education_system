@@ -111,7 +111,7 @@ public class UserService {
          if("校级管理员".equals(role)){
              //1. 无条件查询
             if(queryUsername == null && queryCollege == null && queryRole == null){
-                Criteria criteria = Criteria.where("role").in("院级管理员","评审专家");
+                Criteria criteria = Criteria.where("role").in("院级管理员","评审专家","校级管理员");
                 Query query = new Query();
                 query.addCriteria(criteria);
                 List<User> userList = mongoTemplate.find(query, User.class, "user");
@@ -183,7 +183,7 @@ public class UserService {
 
             // 1. 无条件查询
             if (queryUsername == null && queryCollege == null && queryRole == null) {
-                Criteria criteria = Criteria.where("role").is("基层教学组织负责人").and("college").is(college);
+                Criteria criteria = Criteria.where("college").is(college);
                 Query query = new Query();
                 query.addCriteria(criteria);
                 List<User> userList = mongoTemplate.find(query, User.class, "user");

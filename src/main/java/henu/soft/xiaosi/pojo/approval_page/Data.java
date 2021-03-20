@@ -1,4 +1,4 @@
-package henu.soft.xiaosi.pojo.approvalPage;
+package henu.soft.xiaosi.pojo.approval_page;
 
 /**
  * Copyright 2021 json.cn
@@ -8,7 +8,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
 
 /**
  * 总申报表信息展示-申报表审核情况 数据
@@ -28,6 +27,10 @@ public class Data {
 
     private String formID;
 
+    // 基层教学组织管理员的userNumber
+
+    private String userNumber;
+
     // 2. 组织名称
     private String organization;
 
@@ -45,6 +48,9 @@ public class Data {
 
     // 7. 审核人
     private String reviewer;
+
+
+    private String userNumberOfReviewer;
 
 
     // 9. 评测人工号

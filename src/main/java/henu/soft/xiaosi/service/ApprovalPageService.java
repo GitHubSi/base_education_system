@@ -2,10 +2,8 @@ package henu.soft.xiaosi.service;
 
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
-import henu.soft.xiaosi.pojo.approvalPage.ApprovalPage;
-import henu.soft.xiaosi.pojo.approvalPage.Data;
-import henu.soft.xiaosi.pojo.declarationform.DeclarationForm;
-import henu.soft.xiaosi.vo.ResultResponse;
+import henu.soft.xiaosi.pojo.approval_page.ApprovalPage;
+import henu.soft.xiaosi.pojo.approval_page.Data;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -34,8 +32,6 @@ public class ApprovalPageService {
         return formList;
 
     }
-
-
 
 
 

@@ -1,6 +1,6 @@
 package henu.soft.xiaosi.dao;
 
-import henu.soft.xiaosi.pojo.approvalPage.ApprovalPage;
+import henu.soft.xiaosi.pojo.approval_page.ApprovalPage;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

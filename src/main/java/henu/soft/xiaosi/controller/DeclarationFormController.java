@@ -67,11 +67,24 @@ public class DeclarationFormController{
 
     }
     /**
-     * 1.2 更新：更新的declaration_form的info 和 更新approval_page的审核状态status、reviewer
+     * 1.2 更新：更新的declaration_form的 status、reviewer 和 更新approval_page的审核状态status、reviewer
+     */
+    @PostMapping("/status-reviewer/{formID}")
+    public ResultResponse updateDeclarationFormOfStatusAndReviewer(@PathVariable String formID,@RequestBody DeclarationForm declarationForm){
+        Boolean result = declarationFormService.updateDeclarationFormOfStatusAndReviewer(formID, declarationForm);
+        if (!result){
+            return ResultResponse.fail(404,"申报表信息更新失败！",null);
+        }
+        return ResultResponse.success(200,"申报表信息更新成功！",null);
+
+
+    }
+    /**
+     * 1.3 更新：更新的declaration_form的 info 更新approval_page的info
      */
     @PostMapping("/total/{formID}")
-    public ResultResponse updateDeclarationForm(@PathVariable String formID,@RequestBody DeclarationForm declarationForm){
-        Boolean result = declarationFormService.updateDeclarationForm(formID, declarationForm);
+    public ResultResponse updateDeclarationFormOfInfo(@PathVariable String formID,@RequestBody DeclarationForm declarationForm){
+        Boolean result = declarationFormService.updateDeclarationFormOfInfo(formID, declarationForm);
         if (!result){
             return ResultResponse.fail(404,"申报表信息更新失败！",null);
         }

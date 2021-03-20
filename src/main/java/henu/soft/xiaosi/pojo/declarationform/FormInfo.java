@@ -21,6 +21,11 @@ import org.springframework.stereotype.Repository;
 @Setter
 public class FormInfo {
 
+    private String formID;
+
+    // 填报人的userNumber
+    private String userNumber;
+
     // 1. 教学组织名称
     private String organization;
 
@@ -38,6 +43,8 @@ public class FormInfo {
 
     // 6. 审核人
     private String reviewer;
+
+    private String userNumberOfReviewer;
 
     // 7. 分配评分专家
 

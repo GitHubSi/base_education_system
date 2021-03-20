@@ -1,8 +1,7 @@
 package henu.soft.xiaosi.controller;
 
-import com.mongodb.client.result.UpdateResult;
-import henu.soft.xiaosi.pojo.approvalPage.ApprovalPage;
-import henu.soft.xiaosi.pojo.approvalPage.Data;
+import henu.soft.xiaosi.pojo.approval_page.ApprovalPage;
+import henu.soft.xiaosi.pojo.approval_page.Data;
 import henu.soft.xiaosi.service.ApprovalPageService;
 import henu.soft.xiaosi.vo.ResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +34,7 @@ public class ApprovalPageController {
      * 2. 增：插入创建的新申报表
      */
     @PostMapping("/approval-page")
-    public ResultResponse updateDeclarationFormsList(@RequestBody Data data){
+    public ResultResponse saveDeclarationFormsList(@RequestBody Data data){
         Boolean insertResult = approvalPageService.updateFormList(data);
 
         if(insertResult){

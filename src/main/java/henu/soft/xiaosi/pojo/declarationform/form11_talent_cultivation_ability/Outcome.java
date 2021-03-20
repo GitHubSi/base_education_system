@@ -25,7 +25,7 @@ public class Outcome {
 
     private String formID;
     // 学科竞赛
-    private String subjectCompetition;
+    private List<SubjectCompetitionData> subjectCompetition;
     // 职业技能大赛
     private String professionalSkillsCompetition;
     // 互联网+创业大赛
