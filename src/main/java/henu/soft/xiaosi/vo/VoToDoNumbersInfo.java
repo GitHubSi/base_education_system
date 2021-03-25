@@ -15,4 +15,6 @@ public class VoToDoNumbersInfo {
      private int numbersOfMarker;
     // 待分配的备案表数量
     private int numbersOfDispatch;
+
+    private int numbersOfNeedEdit;
 }

@@ -97,7 +97,13 @@ public class ToDoItemsService {
             long numbersOfPriview = 0;
             long numbersOfDispatch = 0;
             long numbersOfMarker = 0;
+            long numbersOfNeedEdit = 0;
 
+
+            if("基层教学组织管理员".equals(role)){
+                Query query1 = new Query(Criteria.where("info.status").is("返回修改").and("info.userNumber").is(userNumber));
+                numbersOfNeedEdit = mongoTemplate.count(query1, DeclarationForm.class, "declaration_form");
+            }
 
 
             if("校级管理员".equals(role)){
@@ -134,6 +140,7 @@ public class ToDoItemsService {
             voToDoNumbersInfo.setNumbersOfDispatch((int) numbersOfDispatch);
             voToDoNumbersInfo.setNumbersOfMarker((int) numbersOfMarker);
             voToDoNumbersInfo.setNumbersOfPriview((int) numbersOfPriview);
+            voToDoNumbersInfo.setNumbersOfNeedEdit((int) numbersOfNeedEdit);
             return voToDoNumbersInfo;
 
         } catch (Exception e) {

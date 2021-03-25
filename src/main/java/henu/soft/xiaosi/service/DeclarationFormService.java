@@ -82,7 +82,8 @@ public class DeclarationFormService {
             Update update = new Update();
             update.set("info.formID",declarationForm.getFormID()).
                     set("info.status",declarationForm.getInfo().getStatus()).
-                    set("info.reviewer",declarationForm.getInfo().getReviewer());
+                    set("info.reviewer",declarationForm.getInfo().getReviewer()).
+                    set("info.userNumberOfReviewer",declarationForm.getInfo().getUserNumberOfReviewer());
 
 
             UpdateResult updateDeclarationFormResult = mongoTemplate.updateFirst(query, update, "declaration_form");

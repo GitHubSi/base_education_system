@@ -44,7 +44,7 @@ public class ToDoItemsController {
 
 
     /**
-     * 2. 增
+     * 2. 增 ： 管理员的待办事项的增
      * 用户发起修改请求，或者 申报表的 状态发生修改之后新增代办事项
      */
     @PostMapping("/save-info/{userNumber}")
@@ -56,6 +56,13 @@ public class ToDoItemsController {
         return ResultResponse.success(404,"新增一个代办事项失败！",null);
 
     }
+
+    /**
+     * 2.1 增 ： 当前基层教学组织管理员 待办事项的 增
+     * 状态为返回修改 时 显示待办事项修改
+     */
+
+
 
     /**
      * 3. 删

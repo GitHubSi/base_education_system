@@ -28,7 +28,7 @@ public class PracticalTeachingInfo {
     // 校内实践教学工位数
     private int numberOfPracticeTeachingInSchool;
     // 承接实践课程数
-    private int experimentalCourses;
+    private String experimentalCourses;
     // 实践学生人数/学年
     private int numberOfPracticeStudents;
 
