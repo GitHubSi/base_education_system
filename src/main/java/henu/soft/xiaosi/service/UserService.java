@@ -2,7 +2,7 @@ package henu.soft.xiaosi.service;
 
 import com.mongodb.client.result.DeleteResult;
 import henu.soft.xiaosi.pojo.user.User;
-import henu.soft.xiaosi.vo.ListQuery;
+import henu.soft.xiaosi.vo.VoListQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -21,17 +21,17 @@ public class UserService {
      * 1. 查：根据角色权限 分级获取用户列表
      * @return
      */
-    public List<User> findUserList(ListQuery listQuery) {
+    public List<User> findUserList(VoListQuery voListQuery) {
 
 
         // 1. 当前用户的角色学院，控制学院列表 和 角色列表
-        String role = listQuery.getRole();
-        String college = listQuery.getCollege();
+        String role = voListQuery.getRole();
+        String college = voListQuery.getCollege();
 
         // 2. 查询条件
-        String queryUsername = listQuery.getQueryUsername();
-        String queryRole = listQuery.getQueryRole();
-        String queryCollege = listQuery.getQueryCollege();
+        String queryUsername = voListQuery.getQueryUsername();
+        String queryRole = voListQuery.getQueryRole();
+        String queryCollege = voListQuery.getQueryCollege();
 
         System.out.println("queryUsername=>" + queryUsername);
         System.out.println("queryRole=>" + queryRole);

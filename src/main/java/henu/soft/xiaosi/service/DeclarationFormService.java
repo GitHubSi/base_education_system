@@ -90,7 +90,7 @@ public class DeclarationFormService {
 
 
             // 2. 更新approval_page
-            Query query1 = new Query(Criteria.where("_id").is(new ObjectId("6035ed339b7064bfcc0bbc35")).and("data.formID").is(formID));
+            Query query1 = new Query(Criteria.where("_id").is(new ObjectId("6063ff4cd876c32de8c60c0f")).and("data.formID").is(formID));
             Update update1 = new Update();
             update1.set("data.$.status",declarationForm.getInfo().getStatus()).
                     set("data.$.reviewer",declarationForm.getInfo().getReviewer()).
@@ -129,7 +129,7 @@ public class DeclarationFormService {
 
 
             // 2. 更新approval_page
-            Query query1 = new Query(Criteria.where("_id").is(new ObjectId("6035ed339b7064bfcc0bbc35")).and("data.formID").is(formID));
+            Query query1 = new Query(Criteria.where("_id").is(new ObjectId("6063ff4cd876c32de8c60c0f")).and("data.formID").is(formID));
             Update update1 = new Update();
             update1.set("data.$.status",declarationForm.getInfo().getStatus()).
                     set("data.$.reviewer",declarationForm.getInfo().getReviewer()).
@@ -139,11 +139,16 @@ public class DeclarationFormService {
                     set("data.$.professionalTitle",declarationForm.getInfo().getProfessionalTitle()).
                     set("data.$.userNumberOfMarker",declarationForm.getInfo().getUserNumberOfMarker()).
                     set("data.$.userNumberOfReviewer",declarationForm.getInfo().getUserNumberOfReviewer()).
-                    set("data.$.totalScore",declarationForm.getInfo().getTotalScore());
+                    set("data.$.totalScore",declarationForm.getInfo().getTotalScore()).
+                    set("data.$.type",declarationForm.getInfo().getType()).
+                    set("data.$.level",declarationForm.getInfo().getLevel()).
+                    set("data.$.createYear",declarationForm.getInfo().getCreateYear()).
+                    set("data.$.principalNumber",declarationForm.getInfo().getPrincipalNumber()).
+                    set("data.$.faceMultiple",declarationForm.getInfo().getFaceMultiple()).
+                    set("data.$.schoolOrientedProfessionalTitles",declarationForm.getInfo().getSchoolOrientedProfessionalTitles()).
+                    set("data.$.schoolOrientedProfessionalTitlesCode",declarationForm.getInfo().getSchoolOrientedProfessionalTitlesCode()).
+                    set("data.$.schoolOrientedProfessionalTitlesProportion",declarationForm.getInfo().getSchoolOrientedProfessionalTitlesProportion());
 
-
-            System.out.println("debug=> 更新approval_page的status:" + declarationForm.getInfo().getStatus());
-            System.out.println("debug=> 更新approval_page的reviewer:" + declarationForm.getInfo().getReviewer());
 
             UpdateResult updateApprovalPageResult = mongoTemplate.updateFirst(query1, update1, "approval_page");
             return updateDeclarationFormResult.getMatchedCount() == 1 && updateApprovalPageResult.getMatchedCount() == 1;

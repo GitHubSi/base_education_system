@@ -15,4 +15,5 @@ public class VoDataMaintenance {
     private String collegeName;
     private String grassRootsTeachingSystemName;
     private List<String> arrayOfGrassRootsTeachingSystemName;
+    private List<VoDataMaintenanceMajorItem> majors;
 }

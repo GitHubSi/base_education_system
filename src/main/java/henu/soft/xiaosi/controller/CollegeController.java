@@ -33,8 +33,5 @@ public class CollegeController {
 
     }
 
-    /**
-     * 2. 增：系统管理员增加学院
-     */
 
 }

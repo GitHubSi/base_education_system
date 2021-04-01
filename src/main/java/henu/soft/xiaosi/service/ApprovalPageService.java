@@ -43,7 +43,9 @@ public class ApprovalPageService {
 
     public Boolean updateFormList(Data data) {
         try{
-            Query query = new Query(Criteria.where("_id").is(new ObjectId("6035ed339b7064bfcc0bbc35")));
+
+                                                                 // 需要根据动态生成的ObjectId修改
+            Query query = new Query(Criteria.where("_id").is(new ObjectId("6063ff4cd876c32de8c60c0f")));
             Update update = new Update();
             update.addToSet("data",data);
             System.out.println("debug=> 插入approval_page的 data" + data);
@@ -76,7 +78,7 @@ public class ApprovalPageService {
 
 
             // 2. 删除approval_page的申报表
-            Query query1 = Query.query(Criteria.where("_id").is(new ObjectId("6035ed339b7064bfcc0bbc35")));
+            Query query1 = Query.query(Criteria.where("_id").is(new ObjectId("6063ff4cd876c32de8c60c0f")));
 
             // 完全删除需要 pull,需要重新查询当前declaration_form的FormInfo
 

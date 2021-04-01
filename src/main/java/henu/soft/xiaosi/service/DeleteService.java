@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 /**
  * 删除分表 抽取类
  * 2- 14 分表删除抽取
+ *
+ * 目前未使用该模块
  */
 @Service
 public class DeleteService {

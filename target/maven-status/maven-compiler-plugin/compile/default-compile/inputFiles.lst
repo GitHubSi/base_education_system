@@ -1,5 +1,6 @@
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\declarationform\form10_condition_guarantee\ConditionGuarantee.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\declarationform\form13_opinion_feedback\OpinionFeedbackContent.java
+C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\vo\VoListQuery.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\declarationform\form3_rules_and_regulations\RulesAndRegulations.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\vo\VoUser.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\declarationform\FormInfo.java
@@ -8,9 +9,11 @@ C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\ser
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\declarationform\form11_talent_cultivation_ability\SubjectCompetitionData.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\declarationform\form3_rules_and_regulations\RulesAndRegulationsContent.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\declarationform\form6_team_building\TeamBuildingContent.java
+C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\organization\OrganizationNameList.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\shiro\ShiroFilter.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\declarationform\form9_practical_teaching\PracticalTeachingContent.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\declarationform\form5_course_material\TextBooks.java
+C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\major\MajorAndCodeItem.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\declarationform\form7_teaching_research\EducationalReformProjects.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\service\UpdateService.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\declarationform\form5_course_material\OnlineCourses.java
@@ -22,6 +25,7 @@ C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\poj
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\dao\UserDao.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\service\LoginService.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\declarationform\form7_teaching_research\TeachingResearchPapers.java
+C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\major\MajorAndCodeList.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\declarationform\form7_teaching_research\TeachingResearchContent.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\vo\ResultResponse.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\declarationform\form1_principal\Principal.java
@@ -36,6 +40,7 @@ C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\con
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\declarationform\form10_condition_guarantee\ConditionGuaranteeInfo.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\declarationform\form7_teaching_research\RepresentativeOffCampusTeachingSeminars.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\service\EvaluateService.java
+C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\vo\VoDataMaintenance.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\declarationform\form2_teachers\Teachers.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\user\User.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\approval_page\Data.java
@@ -54,6 +59,7 @@ C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\poj
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\declarationform\form13_opinion_feedback\OpinionFeedback.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\service\DispatchFormService.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\exception\GlobalExceptionHandler.java
+C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\vo\VoDataMaintenanceMajorItem.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\declarationform\form8_specialty_construction\SpecialtyConstruction.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\shiro\ShiroConfig.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\controller\EvaluateController.java
@@ -78,7 +84,6 @@ C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\ser
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\service\DeleteService.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\college\CollegeList.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\declarationform\form2_teachers\TeachersData.java
-C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\vo\ListQuery.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\declarationform\DeclarationForm.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\declarationform\form1_principal\TeachingCoursesInRecentTwoAcademicYears.java
 C:\Users\司超龙\IdeaProjects\BaseEducation\src\main\java\henu\soft\xiaosi\pojo\todo_list\ToDoItem.java

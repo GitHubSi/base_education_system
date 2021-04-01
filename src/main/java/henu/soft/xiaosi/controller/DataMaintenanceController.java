@@ -1,5 +1,6 @@
 package henu.soft.xiaosi.controller;
 
+import henu.soft.xiaosi.pojo.major.MajorAndCodeItem;
 import henu.soft.xiaosi.service.DataMaintenanceService;
 import henu.soft.xiaosi.vo.ResultResponse;
 import henu.soft.xiaosi.vo.VoDataMaintenance;
@@ -62,7 +63,7 @@ public class DataMaintenanceController {
 
 
     /**
-     * 3. 查
+     * 2.1. 查
      * 获取所有基层教学组织名称
      */
     @GetMapping("/get-organizations")
@@ -73,6 +74,31 @@ public class DataMaintenanceController {
     }
 
 
+    /**
+     * 3. 增，
+     * 批量增加专业及其代码
+     */
+    @PostMapping("/add-import-majors")
+    public ResultResponse saveImportMajors(@RequestBody VoDataMaintenance dataMaintenance){
+
+        Boolean result = dataMaintenanceService.saveImportMajors(dataMaintenance.getMajors());
+        if(result){
+            return ResultResponse.success(200,"专业及其代码名称添加成功！",null);
+        }
+        return ResultResponse.fail(404,"专业及其代码添加失败！",null);
+
+    }
+
+    /**
+     * 4.1 查
+     * 查询所有专业及对应代码的对象数组
+     */
 
 
+    @GetMapping("/get-majors")
+    public ResultResponse getMajors(){
+        List<MajorAndCodeItem> majors = dataMaintenanceService.getMajors();
+        return ResultResponse.success(200,"专业及代码获取成功！",majors);
+
+    }
 }

@@ -2,7 +2,7 @@ package henu.soft.xiaosi.controller;
 
 import henu.soft.xiaosi.pojo.user.User;
 import henu.soft.xiaosi.service.UserService;
-import henu.soft.xiaosi.vo.ListQuery;
+import henu.soft.xiaosi.vo.VoListQuery;
 import henu.soft.xiaosi.vo.ResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,9 +22,9 @@ public class UserController {
      * @return
      */
     @PostMapping("/list")
-    public ResultResponse findUserList(@RequestBody ListQuery listQuery){
+    public ResultResponse findUserList(@RequestBody VoListQuery voListQuery){
 
-        List<User> userList = userService.findUserList(listQuery);
+        List<User> userList = userService.findUserList(voListQuery);
         return ResultResponse.success(200,"用户列表获取成功！",userList);
 
     }

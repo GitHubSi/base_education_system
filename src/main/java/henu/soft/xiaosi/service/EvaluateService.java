@@ -26,7 +26,7 @@ public class EvaluateService {
             System.out.println("debug=>formID :" + formID);
             System.out.println("debug=>totalScore :" + totalScore);
             // 1. 更新approval_page表
-            Query query = new Query(Criteria.where("_id").is(new ObjectId("6035ed339b7064bfcc0bbc35")).and("data.formID").is(formID));
+            Query query = new Query(Criteria.where("_id").is(new ObjectId("6063ff4cd876c32de8c60c0f")).and("data.formID").is(formID));
             Update update = new Update();
             update.set("data.$.totalScore",totalScore).set("data.$.status","评定结束");
 

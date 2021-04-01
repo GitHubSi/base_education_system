@@ -60,5 +60,22 @@ public class Data {
 
     private String totalScore;
 
+    // 类型
+    private String type;
+    // 级别
+    private String level;
+    // 设立时间
+    private String createYear;
+    // 负责人工号
+    private String principalNumber;
+    // 是否面向多个专业
+    private String faceMultiple;
+    // 面向校内专业名称
+    private String schoolOrientedProfessionalTitles;
+    // 代码
+    private String schoolOrientedProfessionalTitlesCode;
+    // 比例
+    private String schoolOrientedProfessionalTitlesProportion;
+
 
 }
