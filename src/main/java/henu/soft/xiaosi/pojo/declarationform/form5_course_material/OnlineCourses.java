@@ -14,8 +14,8 @@ public class OnlineCourses {
     private String formID;
     private String onlineCourseName;
     private String platformSite;
-    private int chosenNumbers;
-    private int period;
+    private String chosenNumbers;
+    private String period;
     private Date completionTime;
     private String level;
 }

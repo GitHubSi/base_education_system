@@ -21,7 +21,7 @@ public class CollegeService {
     public CollegeList findCollegeList() {
 
         // id部署的时候，需要根据mongodb修改
-        CollegeList collegeList = mongoTemplate.findById(new ObjectId("6062b6079bbc4b0d8c4ae49e"), CollegeList.class, "college");
+        CollegeList collegeList = mongoTemplate.findById(new ObjectId("606ed72b7c4ba32cb8846ecd"), CollegeList.class, "college");
         return collegeList;
     }
 }

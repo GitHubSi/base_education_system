@@ -53,7 +53,7 @@ public class TeachersData {
     //行政职务
     private String administrativeDuties;
     //高校教龄
-    private int universityTeachingAge;
+    private String universityTeachingAge;
     //近2学年任教课程及学时
     private String teachingCoursesInRecentTwoAcademicYears;
 

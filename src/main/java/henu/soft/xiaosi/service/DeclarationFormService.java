@@ -1,9 +1,8 @@
 package henu.soft.xiaosi.service;
 
-import com.mongodb.BasicDBObject;
-import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 import henu.soft.xiaosi.pojo.declarationform.DeclarationForm;
+import henu.soft.xiaosi.pojo.declarationform.FormInfoTeacher;
 import henu.soft.xiaosi.pojo.declarationform.form10_condition_guarantee.ConditionGuarantee;
 import henu.soft.xiaosi.pojo.declarationform.form11_talent_cultivation_ability.TalentCultivationAbility;
 import henu.soft.xiaosi.pojo.declarationform.form12_future_construction_plan.FutureConstructionPlan;
@@ -17,7 +16,6 @@ import henu.soft.xiaosi.pojo.declarationform.form6_team_building.TeamBuilding;
 import henu.soft.xiaosi.pojo.declarationform.form7_teaching_research.TeachingResearch;
 import henu.soft.xiaosi.pojo.declarationform.form8_specialty_construction.SpecialtyConstruction;
 import henu.soft.xiaosi.pojo.declarationform.form9_practical_teaching.PracticalTeaching;
-import henu.soft.xiaosi.vo.ResultResponse;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -25,6 +23,8 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class DeclarationFormService {
@@ -129,7 +129,7 @@ public class DeclarationFormService {
 
 
             // 2. 更新approval_page
-            Query query1 = new Query(Criteria.where("_id").is(new ObjectId("6063ff4cd876c32de8c60c0f")).and("data.formID").is(formID));
+            Query query1 = new Query(Criteria.where("_id").is(new ObjectId("606ed7537c4ba32cb8846ecf")).and("data.formID").is(formID));
             Update update1 = new Update();
             update1.set("data.$.status",declarationForm.getInfo().getStatus()).
                     set("data.$.reviewer",declarationForm.getInfo().getReviewer()).
@@ -145,9 +145,20 @@ public class DeclarationFormService {
                     set("data.$.createYear",declarationForm.getInfo().getCreateYear()).
                     set("data.$.principalNumber",declarationForm.getInfo().getPrincipalNumber()).
                     set("data.$.faceMultiple",declarationForm.getInfo().getFaceMultiple()).
-                    set("data.$.schoolOrientedProfessionalTitles",declarationForm.getInfo().getSchoolOrientedProfessionalTitles()).
-                    set("data.$.schoolOrientedProfessionalTitlesCode",declarationForm.getInfo().getSchoolOrientedProfessionalTitlesCode()).
-                    set("data.$.schoolOrientedProfessionalTitlesProportion",declarationForm.getInfo().getSchoolOrientedProfessionalTitlesProportion());
+                    set("data.$.faceSchoolMajors",declarationForm.getInfo().getFaceSchoolMajors()).
+                    set("data.$.awardLevel",declarationForm.getInfo().getAwardLevel()).
+                    set("data.$.teacher",declarationForm.getInfo().getTeacher()).
+                    set("data.$.teamName",declarationForm.getInfo().getTeamName()).
+                    set("data.$.baseEducationType",declarationForm.getInfo().getBaseEducationType()).
+                    set("data.$.teamType",declarationForm.getInfo().getTeamType()).
+                    set("data.$.getTime",declarationForm.getInfo().getGetTime()).
+                    set("data.$.teamLevel",declarationForm.getInfo().getTeamLevel()).
+                    set("data.$.awardDepartment",declarationForm.getInfo().getAwardDepartment());
+//                    set("data.$.schoolOrientedProfessionalTitles",declarationForm.getInfo().getSchoolOrientedProfessionalTitles()).
+//                    set("data.$.schoolOrientedProfessionalTitlesCode",declarationForm.getInfo().getSchoolOrientedProfessionalTitlesCode()).
+//                    set("data.$.schoolOrientedProfessionalTitlesProportion",declarationForm.getInfo().getSchoolOrientedProfessionalTitlesProportion());
+
+
 
 
             UpdateResult updateApprovalPageResult = mongoTemplate.updateFirst(query1, update1, "approval_page");

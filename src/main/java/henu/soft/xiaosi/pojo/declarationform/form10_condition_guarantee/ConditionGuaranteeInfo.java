@@ -24,14 +24,14 @@ public class ConditionGuaranteeInfo {
     private String formID;
     // 教师人数
 
-    private int numberOfTeacher;
+    private String numberOfTeacher;
     // 年度运行经费
-    private int annualOperatingExpenses;
+    private String annualOperatingExpenses;
     // 行政办公面积
-    private int administrativeOfficeSpace;
+    private String administrativeOfficeSpace;
     // 教学资料档案室面积
 
-    private int areaOfTeachingMaterialsArchives;
+    private String areaOfTeachingMaterialsArchives;
     // 办公设施
     private String officeFacilities;
 

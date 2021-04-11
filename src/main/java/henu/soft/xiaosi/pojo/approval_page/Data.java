@@ -4,10 +4,14 @@ package henu.soft.xiaosi.pojo.approval_page;
  * Copyright 2021 json.cn
  */
 
+import henu.soft.xiaosi.pojo.declarationform.FormInfoFaceSchoolMajor;
+import henu.soft.xiaosi.pojo.declarationform.FormInfoTeacher;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 总申报表信息展示-申报表审核情况 数据
@@ -49,7 +53,7 @@ public class Data {
     // 7. 审核人
     private String reviewer;
 
-
+    // 8. 审核人工号
     private String userNumberOfReviewer;
 
 
@@ -68,14 +72,29 @@ public class Data {
     private String createYear;
     // 负责人工号
     private String principalNumber;
-    // 是否面向多个专业
+    // 面向多个专业个数
     private String faceMultiple;
-    // 面向校内专业名称
-    private String schoolOrientedProfessionalTitles;
-    // 代码
-    private String schoolOrientedProfessionalTitlesCode;
-    // 比例
-    private String schoolOrientedProfessionalTitlesProportion;
+
+    // 面向多个专业及其代码
+    private List<FormInfoFaceSchoolMajor> faceSchoolMajors;
+
+    //获奖等级
+    private String awardLevel;
+    //教师姓名,工号，是否团对负责人
+    private List<FormInfoTeacher> teacher;
+
+    //团队名称
+    private String teamName;
+    //类型
+    private String baseEducationType;
+    //类别
+    private String teamType;
+    //获得时间
+    private String getTime;
+    //等级
+    private String teamLevel;
+    //授予部门
+    private String awardDepartment;
 
 
 }

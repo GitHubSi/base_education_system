@@ -14,8 +14,8 @@ public class TextBooks {
     private String nameOfTeachingMaterial;
     private String editorInChief;
     private String participatingEditor;
-    private int theNumberOfWordsInTheChapter;
-    private Date yearOfPublication;
+    private String theNumberOfWordsInTheChapter;
+    private String yearOfPublication;
     private String press;
     private String level;
 }

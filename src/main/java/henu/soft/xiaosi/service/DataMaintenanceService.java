@@ -34,7 +34,7 @@ public class DataMaintenanceService {
     public Boolean saveCollege(String college) {
         // 这里需要根据表id手动调整
         try {
-            Query query = new Query(Criteria.where("_id").is(new ObjectId("6062b6079bbc4b0d8c4ae49e")));
+            Query query = new Query(Criteria.where("_id").is(new ObjectId("606ed72b7c4ba32cb8846ecd")));
             Update update = new Update();
             update.addToSet("items", college);
             UpdateResult result = mongoTemplate.upsert(query, update, "college");
@@ -58,7 +58,7 @@ public class DataMaintenanceService {
 
         // 这里需要根据表id手动调整
         try {
-            Query query = new Query(Criteria.where("_id").is(new ObjectId("605b36c185088413906875d8")));
+            Query query = new Query(Criteria.where("_id").is(new ObjectId("606ed6817c4ba32cb8846eca")));
             Update update = new Update();
             update.addToSet("names", organization);
             UpdateResult result = mongoTemplate.upsert(query, update, "organization_name");
@@ -85,7 +85,7 @@ public class DataMaintenanceService {
 
         // 这里需要根据表id手动调整
         try {
-            Query query = new Query(Criteria.where("_id").is(new ObjectId("605b36c185088413906875d8")));
+            Query query = new Query(Criteria.where("_id").is(new ObjectId("606ed6817c4ba32cb8846eca")));
             Update update = new Update();
             for (String organization :
                     organizations) {
@@ -110,7 +110,7 @@ public class DataMaintenanceService {
 
     public List<String> getOrganizations() {
 
-        Query query = new Query(Criteria.where("_id").is(new ObjectId("605b36c185088413906875d8")));
+        Query query = new Query(Criteria.where("_id").is(new ObjectId("606ed6817c4ba32cb8846eca")));
 
 
         OrganizationNameList list = mongoTemplate.findOne(query, OrganizationNameList.class, "organization_name");
@@ -134,7 +134,7 @@ public class DataMaintenanceService {
 
         // 这里需要根据表id手动调整
         try {
-            Query query = new Query(Criteria.where("_id").is(new ObjectId("60659156518180092416132e")));
+            Query query = new Query(Criteria.where("_id").is(new ObjectId("606ed6af7c4ba32cb8846ecc")));
             Update update = new Update();
             for (VoDataMaintenanceMajorItem majorAndCode :
                     majors) {
@@ -159,7 +159,7 @@ public class DataMaintenanceService {
 
     public List<MajorAndCodeItem> getMajors() {
 
-        Query query = new Query(Criteria.where("_id").is(new ObjectId("60659156518180092416132e")));
+        Query query = new Query(Criteria.where("_id").is(new ObjectId("606ed6af7c4ba32cb8846ecc")));
 
 
         MajorAndCodeList list = mongoTemplate.findOne(query, MajorAndCodeList.class, "major_and_code");

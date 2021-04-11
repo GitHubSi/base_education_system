@@ -24,13 +24,13 @@ public class PracticalTeachingInfo {
     // 校内实践（实验、实训）单位名称
     private String nameOfSchoolPracticalUnit;
     // 使用面积
-    private int area;
+    private String area;
     // 校内实践教学工位数
-    private int numberOfPracticeTeachingInSchool;
+    private String numberOfPracticeTeachingInSchool;
     // 承接实践课程数
     private String experimentalCourses;
     // 实践学生人数/学年
-    private int numberOfPracticeStudents;
+    private String numberOfPracticeStudents;
 
 
 }

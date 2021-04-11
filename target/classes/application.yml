@@ -2,7 +2,7 @@
 spring:
   data:
     mongodb:
-      host: 47.108.148.53
+      host: 172.32.6.92
       port: 27017
       database: base_education
     redis:

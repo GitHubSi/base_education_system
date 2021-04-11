@@ -22,7 +22,7 @@ import org.springframework.stereotype.Repository;
 public class TeachingCoursesInRecentTwoAcademicYears {
 
     private String course;
-    private int period;
+    private String period;
 
 
 }

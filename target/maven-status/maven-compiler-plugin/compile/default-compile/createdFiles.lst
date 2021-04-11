@@ -6,11 +6,13 @@ henu\soft\xiaosi\pojo\declarationform\form2_teachers\Teachers.class
 henu\soft\xiaosi\shiro\ShiroConfig.class
 henu\soft\xiaosi\pojo\declarationform\form13_opinion_feedback\OpinionFeedback.class
 henu\soft\xiaosi\pojo\declarationform\form9_practical_teaching\PracticalTeaching.class
+henu\soft\xiaosi\pojo\declarationform\FormInfoTeacher.class
 henu\soft\xiaosi\pojo\declarationform\form8_specialty_construction\SpecialtyConstruction.class
 henu\soft\xiaosi\service\DeleteService.class
 henu\soft\xiaosi\dao\LoginDao.class
 henu\soft\xiaosi\shiro\ShiroFilter.class
 henu\soft\xiaosi\pojo\declarationform\form7_teaching_research\TeachingResearch.class
+henu\soft\xiaosi\service\ExportPageService.class
 henu\soft\xiaosi\pojo\declarationform\form3_rules_and_regulations\RulesAndRegulationsContent.class
 henu\soft\xiaosi\service\DispatchFormService.class
 henu\soft\xiaosi\pojo\declarationform\form8_specialty_construction\SpecialtyConstructionInfo.class
@@ -37,11 +39,13 @@ henu\soft\xiaosi\pojo\college\CollegeList.class
 henu\soft\xiaosi\pojo\declarationform\form3_rules_and_regulations\RulesAndRegulations.class
 henu\soft\xiaosi\shiro\UserRealm.class
 henu\soft\xiaosi\service\UpdateService.class
+henu\soft\xiaosi\controller\ExportPageController.class
 henu\soft\xiaosi\pojo\declarationform\form7_teaching_research\RepresentativeTeachingAndResearchActivities.class
 henu\soft\xiaosi\service\DataMaintenanceService.class
 henu\soft\xiaosi\service\RoleService.class
 henu\soft\xiaosi\pojo\declarationform\form8_specialty_construction\SpecialtyConstructionContent.class
 henu\soft\xiaosi\pojo\declarationform\form1_principal\TeachingCoursesInRecentTwoAcademicYears.class
+henu\soft\xiaosi\pojo\declarationform\FormInfoFaceSchoolMajor.class
 henu\soft\xiaosi\dao\UserDao.class
 henu\soft\xiaosi\shiro\ShiroToken.class
 henu\soft\xiaosi\config\CrosConfig.class

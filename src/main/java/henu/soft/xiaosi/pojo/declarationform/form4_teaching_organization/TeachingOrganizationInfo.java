@@ -23,8 +23,8 @@ public class TeachingOrganizationInfo {
     private String formID;
     private String professorName;
     private String course;
-    private int period;
-    private int studentNumbers;
+    private String period;
+    private String studentNumbers;
     private String semesterTime;
 
 

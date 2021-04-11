@@ -6,7 +6,8 @@ package henu.soft.xiaosi.pojo.declarationform;
  */
 
 import lombok.*;
-import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * Auto-generated: 2021-02-07 13:41:41
@@ -64,15 +65,30 @@ public class FormInfo {
 
     // 负责人工号
     private String principalNumber;
-    // 是否面向多个专业
+    // 面向多个专业个数
     private String faceMultiple;
-    // 面向校内专业名称
-    private String schoolOrientedProfessionalTitles;
-    // 代码
-    private String schoolOrientedProfessionalTitlesCode;
-    // 比例
-    private String schoolOrientedProfessionalTitlesProportion;
 
+    // 面向学校专业
+    private List<FormInfoFaceSchoolMajor> faceSchoolMajors;
+
+
+    //获奖等级
+    private String awardLevel;
+    //教师姓名,工号，是否团对负责人
+    private List<FormInfoTeacher> teacher;
+
+    //团队名称
+    private String teamName;
+    //类型
+    private String baseEducationType;
+    //类别
+    private String teamType;
+    //获得时间
+    private String getTime;
+    //等级
+    private String teamLevel;
+    //授予部门
+    private String awardDepartment;
 
 
 

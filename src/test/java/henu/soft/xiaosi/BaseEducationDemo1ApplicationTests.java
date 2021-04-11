@@ -13,10 +13,7 @@ import henu.soft.xiaosi.pojo.declarationform.form3_rules_and_regulations.RulesAn
 import henu.soft.xiaosi.pojo.declarationform.form4_teaching_organization.TeachingOrganization;
 import henu.soft.xiaosi.pojo.declarationform.form6_team_building.TeamBuilding;
 import henu.soft.xiaosi.pojo.user.User;
-import henu.soft.xiaosi.service.ApprovalPageService;
-import henu.soft.xiaosi.service.DeclarationFormService;
-import henu.soft.xiaosi.service.DispatchFormService;
-import henu.soft.xiaosi.service.LoginService;
+import henu.soft.xiaosi.service.*;
 import henu.soft.xiaosi.vo.ResultResponse;
 import org.bson.types.ObjectId;
 import org.junit.jupiter.api.Test;
@@ -212,6 +209,15 @@ class BaseEducationDemo1ApplicationTests {
 //        System.out.println(declarationForms);
         List<DeclarationForm> declarationFormsOfUndispatch = dispatchFormService.findDeclarationFormsOfUndispatch();
         System.out.println(declarationFormsOfUndispatch);
+    }
+
+    @Autowired
+    ExportPageService exportPageService;
+
+    @Test
+    void testExportSchool(){
+        List<Data> data = exportPageService.exportSchool();
+        System.out.println(data);
     }
 
 

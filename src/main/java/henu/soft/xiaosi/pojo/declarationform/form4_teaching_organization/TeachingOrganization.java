@@ -32,11 +32,11 @@ public class TeachingOrganization {
     private Date updatedAt;
     @Id
     private String teachingOrganizationID;
-    private Integer totalNumberOfTeachers;
-    private Integer coursesUndertaken;
-    private Integer perCapitaWeeklySchoolHours;
-    private Integer perCapitaGuidingGraduationThesis;
-    private Integer teachingAccident;
+    private String totalNumberOfTeachers;
+    private String coursesUndertaken;
+    private String perCapitaWeeklySchoolHours;
+    private String perCapitaGuidingGraduationThesis;
+    private String teachingAccident;
     private String comprehensiveEvaluationOfExcellentTeaching;
     private TeachingOrganizationContent content;
     private List<TeachingOrganizationInfo> info;

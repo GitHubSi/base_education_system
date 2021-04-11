@@ -47,7 +47,7 @@ public class Principal {
     private String degree;
     private String authorizationDepartment;
     private Date dateOfGrant;
-    private int universityTeachingAge;
+    private String universityTeachingAge;
     private String professionalTitle;
     private String administrativeDuties;
     private Date dateOfHeadOfBasicTeachingOrganization;
