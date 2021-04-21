@@ -51,8 +51,8 @@ public class ToDoItemsService {
             Update update = new Update();
             update.addToSet("toDoItems",toDoItem);
             UpdateResult result = mongoTemplate.upsert(query, update, ToDoList.class, "todo_list");
-            if(result.getMatchedCount() == 1) return true;
-            else return false;
+             return true;
+
         } catch (Exception e) {
             e.printStackTrace();
             return false;
