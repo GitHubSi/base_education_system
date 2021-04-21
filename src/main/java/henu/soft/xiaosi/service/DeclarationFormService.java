@@ -90,7 +90,7 @@ public class DeclarationFormService {
 
 
             // 2. 更新approval_page
-            Query query1 = new Query(Criteria.where("_id").is(new ObjectId("6063ff4cd876c32de8c60c0f")).and("data.formID").is(formID));
+            Query query1 = new Query(Criteria.where("_id").is(new ObjectId("606ed7537c4ba32cb8846ecf")).and("data.formID").is(formID));
             Update update1 = new Update();
             update1.set("data.$.status",declarationForm.getInfo().getStatus()).
                     set("data.$.reviewer",declarationForm.getInfo().getReviewer()).

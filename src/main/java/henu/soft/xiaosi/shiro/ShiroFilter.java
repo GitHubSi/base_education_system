@@ -84,6 +84,8 @@ public class ShiroFilter extends AuthenticatingFilter {
 
             if(!JwtUtil.verify(jwt, JwtUtil.getUserNumber(jwt))){
 
+
+
                 throw new ExpiredCredentialsException("token已经失效，请重新登录！");
             }
             //执行登录
